@@ -32,7 +32,7 @@ div.output_png {
 
 
 div.output_area {
-    max-width: 92%
+    max-width: 98%
 }
 
 div.output_subarea {
@@ -64,7 +64,25 @@ pre code {
 
 
 @media only screen and (max-width: 640px) {
-    div.output_subarea {
-        padding: 0.5em;
-        max-width: calc(100% - 4ex);
+
+
+div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
+.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
 }

@@ -1,185 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-
-  
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-
-  <title> BLEH | Handling Missing Values in your Data.</title>
-
-
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="referrer" content="origin" />
-  <meta name="generator" content="Pelican" />
-  <link href="https://iameo.github.io/" rel="canonical" />
-
-  <!-- Feed -->
-        <link href="https://iameo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Full Atom Feed" />
-          <link href="https://iameo.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
-
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-
-
- <!--MATHJAX-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.min.js"></script>
-
-<script src="https://use.fontawesome.com/5441545335.js"></script>
-
-  <link href="https://iameo.github.io/theme/css/ipynb.css" type="text/css" rel="stylesheet" />
-  <link href="https://iameo.github.io/theme/css/style.css" type="text/css" rel="stylesheet" />
-
-
-
-  <!-- Code highlight color scheme -->
-      <link href="https://iameo.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
-
-
-
-
-
-
-
-  <!-- Custom fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
-  
-
-
-
-  
-
-
-
-
-  <link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="canonical" />
-
-    <meta name="description" content="NaN, what NaN? How to cope with missing values without tearing up.">
-
-    <meta name="author" content="Emmanuel Okwudike">
-
-    <meta name="tags" content="Data Science">
-    <meta name="tags" content="ML">
-    <meta name="tags" content="scikit-learn">
-
-
-
-
-<!-- Open Graph -->
-<meta property="og:site_name" content="bleh"/>
-<meta property="og:title" content="Handling Missing Values in your Data."/>
-<meta property="og:description" content="NaN, what NaN? How to cope with missing values without tearing up."/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2019-01-13 18:40:00+01:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://iameo.github.io/author/emmanuel-okwudike.html">
-<meta property="article:section" content="Data Science"/>
-<meta property="article:tag" content="Data Science"/>
-<meta property="article:tag" content="ML"/>
-<meta property="article:tag" content="scikit-learn"/>
-<meta property="og:image" content="">
-
-<!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@__oemmanuel__">
-    <meta name="twitter:title" content="Handling Missing Values in your Data.">
-    <meta name="twitter:url" content="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/">
-
-        <meta name="twitter:image:src" content="">
-      <meta name="twitter:description" content="NaN, what NaN? How to cope with missing values without tearing up.">
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "name": "Handling Missing Values in your Data.",
-  "headline": "Handling Missing Values in your Data.",
-  "datePublished": "2019-01-13 18:40:00+01:00",
-  "dateModified": "",
-  "author": {
-    "@type": "Person",
-    "name": "Emmanuel Okwudike",
-    "url": "https://iameo.github.io/author/emmanuel-okwudike.html"
-  },
-  "image": "",
-  "url": "https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/",
-  "description": "Machine Learning algorithms work well depending on a number of factors; one being the quality of the presented data. In fact,..."
-}
-</script>
-</head>
-<!--Body class -->
-<body class="home-template">
-
-<nav id="menu">
-  <a class="close-button">Close</a>
-  <div class="nav-wrapper">
-    <p class="nav-label">Menu</p>
-    <ul>
-
-              <li role="presentation"><a href="https://iameo.github.io/pages/contact-me.html">Contact Me</a></li>
-
-    </ul>
-  </div>
-</nav>
-    <!-- Progressbar -->
-    <div class="progress-container">
-        <span class="progress-bar"></span>
-    </div>
-
-    <!-- Page Header -->
-        <nav id="navigation">
-            <span id="home-button" class="nav-button">
-                <a class="home-button" href="https://iameo.github.io/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
-            </span>
-          <span id="menu-button" class="nav-button">
-            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
-          </span>
-        </nav>
-
-
-  <section id="wrapper">
-    <a class="hidden-close"></a>
-
-    <!-- Post content -->
-    <main class="content" role="main">
-        <article class="post">
-        <div class="inner">
-            <section class="post-content">
-            <h2 class="post-title">Handling Missing Values in your Data.</h2>
-    <header>
-       
-  
-        <span class="post-meta">
-	    <i class="fa fa-user"></i>
-                <a href="https://iameo.github.io/author/emmanuel-okwudike.html">Emmanuel Okwudike</a>
-            | <i class="fa fa-calendar"></i> <time datetime="Sun 13 January 2019">Sun 13 January 2019</time>
-        </span>
-
-    </header>
-	 <p>Machine Learning algorithms work well depending on a number of factors; one being the quality of the presented data. In fact, preparing/preprocessing your data to make a magical input is somewhere in the critical zone on a Wizard's(here, Data Scientist) orb, and should, like other factors, be taken seriously in preparing, before pushing it into an ML vanishing cabinet.</p>
-<p>We will look at how to achieve quality data using some preprocessing techiques inorder to build a robust machine learning model, and we might be lucky enough to test it on real data.</p>
-<h2 id="workflow">workflow:</h2>
-<ul>
-<li>Identifying missing values or unknown values.</li>
-<li>Removing/imputing missing values from the dataset</li>
-<li>Getting categorical data to play nice with our ML model.</li>
-<li>Drop this. Drop that. Selecting relevant features.</li>
-</ul>
-<p>Having one or more missing values(<em>NaN - Not a Number</em>) lurking around in a dataset is something that shouldn't worry you, if any thing having not to see one in a big dataset should even scare you before you go hunting for the powerhouse behind such beauty disguised as data. Why? Like most scientific data collecting there's prone to be an error; error in reading a value or just sheer oversight, or leaving a particular field blank for a couple of reasons. These empty fields are registed as either <code>NULL</code> or <code>NaN</code>.</p>
-<p>Let's delve into some practical techniques for dealing with missing values, by either removing these NaNs or imputing them.</p>
-<h3 id="identifying-missing-values-or-unknown-values">Identifying missing values or unknown values.</h3>
-<p>For the sake of this post I have prepared a sample data with some intentionally missing values so as to give us a somewhat personal insight at this.</p>
-<style type="text/css">/*!
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh - Data Science</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/data-science.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2019-01-13T18:40:00+01:00</updated><entry><title>Handling Missing Values in your Data.</title><link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="alternate"></link><published>2019-01-13T18:40:00+01:00</published><updated>2019-01-13T18:40:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-13:/blog/2019/01/13/nan-what-nan-handling-missing-values/</id><summary type="html">&lt;p&gt;&lt;em&gt;NaN, what NaN? How to cope with missing values without tearing up.&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Machine Learning algorithms work well depending on a number of factors; one being the quality of the presented data. In fact, preparing/preprocessing your data to make a magical input is somewhere in the critical zone on a Wizard's(here, Data Scientist) orb, and should, like other factors, be taken seriously in preparing, before pushing it into an ML vanishing cabinet.&lt;/p&gt;
+&lt;p&gt;We will look at how to achieve quality data using some preprocessing techiques inorder to build a robust machine learning model, and we might be lucky enough to test it on real data.&lt;/p&gt;
+&lt;h2 id="workflow"&gt;workflow:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Identifying missing values or unknown values.&lt;/li&gt;
+&lt;li&gt;Removing/imputing missing values from the dataset&lt;/li&gt;
+&lt;li&gt;Getting categorical data to play nice with our ML model.&lt;/li&gt;
+&lt;li&gt;Drop this. Drop that. Selecting relevant features.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Having one or more missing values(&lt;em&gt;NaN - Not a Number&lt;/em&gt;) lurking around in a dataset is something that shouldn't worry you, if any thing having not to see one in a big dataset should even scare you before you go hunting for the powerhouse behind such beauty disguised as data. Why? Like most scientific data collecting there's prone to be an error; error in reading a value or just sheer oversight, or leaving a particular field blank for a couple of reasons. These empty fields are registed as either &lt;code&gt;NULL&lt;/code&gt; or &lt;code&gt;NaN&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let's delve into some practical techniques for dealing with missing values, by either removing these NaNs or imputing them.&lt;/p&gt;
+&lt;h3 id="identifying-missing-values-or-unknown-values"&gt;Identifying missing values or unknown values.&lt;/h3&gt;
+&lt;p&gt;For the sake of this post I have prepared a sample data with some intentionally missing values so as to give us a somewhat personal insight at this.&lt;/p&gt;
+&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -541,7 +374,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -594,19 +427,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -667,7 +500,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -911,7 +744,7 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
+div.output_area .mglyph &gt; img {
   max-width: none;
 }
 /* This is needed to protect the pre formating from global settings such
@@ -1149,7 +982,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -1221,8 +1054,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -1290,35 +1123,35 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#for reading data, making dataframes, csv file I/O</span>
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[11]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt; &lt;span class="c1"&gt;#for reading data, making dataframes, csv file I/O&lt;/span&gt;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;~/datasets/dumdum/dummy_data.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1">#import dummy data</span>
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;~/datasets/dumdum/dummy_data.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sep&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#import dummy data&lt;/span&gt;
 
-<span class="n">df</span> <span class="c1">#call data</span>
-</pre></div>
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="c1"&gt;#call data&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
+    &lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
+
+
+
+&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -1330,98 +1163,98 @@ h6:hover .anchor-link {
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Salary (NGN)</th>
-      <th>Level</th>
-      <th>Desk Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>22</td>
-      <td>89500.0</td>
-      <td>2</td>
-      <td>12.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>19</td>
-      <td>95000.0</td>
-      <td>4</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>32</td>
-      <td>40000.0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>25</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>3.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
+&lt;/style&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Salary (NGN)&lt;/th&gt;
+      &lt;th&gt;Level&lt;/th&gt;
+      &lt;th&gt;Desk Number&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;89500.0&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;12.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;95000.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;6.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;40000.0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1">#checking the number of NaN in each column</span>
-</pre></div>
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[12]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isna&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;#checking the number of NaN in each column&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>Age             0
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;Age             0
 Salary (NGN)    1
 Level           0
 Desk Number     1
-dtype: int64</pre>
-</div>
+dtype: int64&lt;/pre&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
  
 
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -1448,15 +1281,15 @@ dtype: int64</pre>
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+&lt;/script&gt;
 
 
-<p>As we can see Age has no presence of NaN, Salary and Desk number have a value of 1. By looking at df you can point them out.</p>
-<p>Easy peasy lemon squeezy. Let's move on, shall we?</p>
-<h3 id="removingimputing-missing-values-from-the-dataset">Removing/imputing missing values from the dataset.</h3>
-<p>Simply removing missing values could be a fun task, albiet a problematic one. Inorder to do this one would have to decide on which to remove; columns(features) or rows(samples). And even then you'd still have to live through the judgemental feeling by the gods of data on why you would snap your fingers on some (potentially) good data.</p>
-<p>Again, it's a fun task. See how:</p>
-<style type="text/css">/*!
+&lt;p&gt;As we can see Age has no presence of NaN, Salary and Desk number have a value of 1. By looking at df you can point them out.&lt;/p&gt;
+&lt;p&gt;Easy peasy lemon squeezy. Let's move on, shall we?&lt;/p&gt;
+&lt;h3 id="removingimputing-missing-values-from-the-dataset"&gt;Removing/imputing missing values from the dataset.&lt;/h3&gt;
+&lt;p&gt;Simply removing missing values could be a fun task, albiet a problematic one. Inorder to do this one would have to decide on which to remove; columns(features) or rows(samples). And even then you'd still have to live through the judgemental feeling by the gods of data on why you would snap your fingers on some (potentially) good data.&lt;/p&gt;
+&lt;p&gt;Again, it's a fun task. See how:&lt;/p&gt;
+&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1818,7 +1651,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -1871,19 +1704,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -1944,7 +1777,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -2188,7 +2021,7 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
+div.output_area .mglyph &gt; img {
   max-width: none;
 }
 /* This is needed to protect the pre formating from global settings such
@@ -2426,7 +2259,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -2498,8 +2331,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -2567,31 +2400,31 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#drop rows(axis = 0) that contain Nan</span>
-</pre></div>
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[13]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#drop rows(axis = 0) that contain Nan&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[13]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
+    &lt;div class="prompt output_prompt"&gt;Out[13]:&lt;/div&gt;
+
+
+
+&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -2603,68 +2436,68 @@ h6:hover .anchor-link {
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Salary (NGN)</th>
-      <th>Level</th>
-      <th>Desk Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>22</td>
-      <td>89500.0</td>
-      <td>2</td>
-      <td>12.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>19</td>
-      <td>95000.0</td>
-      <td>4</td>
-      <td>6.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
+&lt;/style&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Salary (NGN)&lt;/th&gt;
+      &lt;th&gt;Level&lt;/th&gt;
+      &lt;th&gt;Desk Number&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;89500.0&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;12.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;95000.0&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;6.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#drop columns(axis=1) that contain Nan</span>
-</pre></div>
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[14]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#drop columns(axis=1) that contain Nan&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[14]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
+    &lt;div class="prompt output_prompt"&gt;Out[14]:&lt;/div&gt;
+
+
+
+&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -2676,51 +2509,51 @@ h6:hover .anchor-link {
     .dataframe thead th {
         text-align: right;
     }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Level</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>22</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>19</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>32</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>25</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
+&lt;/style&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Age&lt;/th&gt;
+      &lt;th&gt;Level&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
  
 
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -2747,19 +2580,19 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+&lt;/script&gt;
 
 
-<p>Easy peasy? yeah?</p>
-<h4 id="nb">NB:</h4>
-<ol>
-<li>This method of dropping rows and columns can prove to be detrimental in the long run as (valuable) samples/features could be eliminated, risking a reliable analysis.</li>
-<li>The <code>dropna</code> method is a fully equipped method. Do check around for other implementations, including dropping specific rows that contain NaNs, subsets and threshes.</li>
-</ol>
-<h3 id="imputing-missing-values">Imputing missing values</h3>
-<p>This is the recommended approach when it's dealing with missing values. It entails replacing Nan with mean, median or mode of that particular row/column.
-A convenient way to achieve this is by using the <code>Imputer</code> class from <strong>scikit-learn</strong>, as shown below:</p>
-<style type="text/css">/*!
+&lt;p&gt;Easy peasy? yeah?&lt;/p&gt;
+&lt;h4 id="nb"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;This method of dropping rows and columns can prove to be detrimental in the long run as (valuable) samples/features could be eliminated, risking a reliable analysis.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;dropna&lt;/code&gt; method is a fully equipped method. Do check around for other implementations, including dropping specific rows that contain NaNs, subsets and threshes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="imputing-missing-values"&gt;Imputing missing values&lt;/h3&gt;
+&lt;p&gt;This is the recommended approach when it's dealing with missing values. It entails replacing Nan with mean, median or mode of that particular row/column.
+A convenient way to achieve this is by using the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, as shown below:&lt;/p&gt;
+&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3121,7 +2954,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -3174,19 +3007,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -3247,7 +3080,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -3491,7 +3324,7 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
+div.output_area .mglyph &gt; img {
   max-width: none;
 }
 /* This is needed to protect the pre formating from global settings such
@@ -3729,7 +3562,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -3801,8 +3634,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -3870,86 +3703,86 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span>
-<span class="n">imput</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#strategies = mean, median, most_frequent.</span>
-<span class="n">imput</span> <span class="o">=</span> <span class="n">imput</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1">#fit the values.</span>
-<span class="n">imputed_data</span> <span class="o">=</span> <span class="n">imput</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1">#then transforms it.</span>
-<span class="n">imputed_data</span> <span class="c1">#show</span>
-</pre></div>
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[15]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;
+&lt;span class="n"&gt;imput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;missing_values&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;NaN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strategy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mean&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#strategies = mean, median, most_frequent.&lt;/span&gt;
+&lt;span class="n"&gt;imput&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;imput&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#fit the values.&lt;/span&gt;
+&lt;span class="n"&gt;imputed_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;imput&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;#then transforms it.&lt;/span&gt;
+&lt;span class="n"&gt;imputed_data&lt;/span&gt; &lt;span class="c1"&gt;#show&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[15]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[15]:&lt;/div&gt;
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[2.20000000e+01, 8.95000000e+04, 2.00000000e+00, 1.20000000e+01],
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([[2.20000000e+01, 8.95000000e+04, 2.00000000e+00, 1.20000000e+01],
        [1.90000000e+01, 9.50000000e+04, 4.00000000e+00, 6.00000000e+00],
        [3.20000000e+01, 4.00000000e+04, 0.00000000e+00, 7.00000000e+00],
-       [2.50000000e+01, 7.48333333e+04, 1.00000000e+00, 3.00000000e+00]])</pre>
-</div>
+       [2.50000000e+01, 7.48333333e+04, 1.00000000e+00, 3.00000000e+00]])&lt;/pre&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imputed_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1">#so we can get a better visualization of the above.</span>
-</pre></div>
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[16]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;imputed_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;#so we can get a better visualization of the above.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-    </div>
-</div>
-</div>
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
 
 
+&lt;div class="output_area"&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[16]:&lt;/div&gt;
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[   22, 89500,     2,    12],
+
+
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;array([[   22, 89500,     2,    12],
        [   19, 95000,     4,     6],
        [   32, 40000,     0,     7],
-       [   25, 74833,     1,     3]])</pre>
-</div>
+       [   25, 74833,     1,     3]])&lt;/pre&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
  
 
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -3976,87 +3809,21 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
+&lt;/script&gt;
 
 
-<p>Not much of a task, yeah? no? Okay. We imported the <code>Imputer</code> class from <strong>scikit-learn</strong>, gave it a 'strategy' to handle the data, fitted the data and then transformed it. Easy peasy--no? Just go over it line by line.</p>
-<h4 id="nb_1">NB:</h4>
-<ol>
-<li>The strategy <code>most_frequent</code> is suitable for imputing categorical feature values, for         example, a feature column that contains an encoding of color names, such as green, orange, and blue.</li>
-<li>Understanding the scikit-learn estimator API:
-<img alt="Fit-transform - sklearn" src="https://i.stack.imgur.com/PiaIX.png">
-*image source: <a href="https://i.stack.imgur.com/PiaIX.png">imgur</a></li>
-<li>The <code>fit</code> method learns the parameter from the training data, and the <code>transform</code> method use these parameters to transform the data. </li>
-<li>There are other ways of handling NaN. Go find out!</li>
-</ol>
-<h5 id="resources">Resources:</h5>
-<ol>
-<li>Python Machine Learning by Sebastian Raschka.</li>
-<li><a href="https://scikit-learn.org/stable/data_transforms.html#dataset-transformations">scikit data transformation</a></li>
-</ol>
-            </section>
-
-            <section class="post-info">
-                <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=Handling Missing Values in your Data.&amp;url=https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <i class="fa fa-twitter"></i><span class="hidden">Twitter</span>
-                    </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <i class="fa fa-facebook-f"></i><span class="hidden">Facebook</span>
-                    </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <i class="fa fa-google-plus-g"></i><span class="hidden">Google+</span>
-                    </a>
-                    <div class="clear"></div>
-                </div>
-
-                <aside class="post-tags">
-<a href="https://iameo.github.io/tag/data-science.html">Data Science</a><a href="https://iameo.github.io/tag/ml.html">ML</a><a href="https://iameo.github.io/tag/scikit-learn.html">scikit-learn</a>                </aside>
-
-                <div class="clear"></div>
-
-
-                </section>
-
-
-                <aside class="post-nav">
-                    <div class="clear"></div>
-                </aside>
-
-            </div>
-        </article>
-    </main>
-      <!-- Body class -->
-    <div id="body-class" style="display: none;" class=""></div>
-
-    <footer id="footer">
-      <div class="inner">
-        <section class="credits">
-
-
-          <span class="credits-theme">Theme <a href="https://github.com/iameo/atyna" rel="nofollow">atyna</a></span>
-          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
-        </section>
-      </div>
-    </footer>
-  </section>
-
-  <script type="text/javascript" src="https://iameo.github.io/theme/js/script.js"></script>
-
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132444432-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-132444432-1', { 'anonymize_ip': true });
-    </script>
-    
-
-
-
-
-
-</body>
-
-</html>
+&lt;p&gt;Not much of a task, yeah? no? Okay. We imported the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, gave it a 'strategy' to handle the data, fitted the data and then transformed it. Easy peasy--no? Just go over it line by line.&lt;/p&gt;
+&lt;h4 id="nb_1"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;The strategy &lt;code&gt;most_frequent&lt;/code&gt; is suitable for imputing categorical feature values, for         example, a feature column that contains an encoding of color names, such as green, orange, and blue.&lt;/li&gt;
+&lt;li&gt;Understanding the scikit-learn estimator API:
+&lt;img alt="Fit-transform - sklearn" src="https://i.stack.imgur.com/PiaIX.png"&gt;
+*image source: &lt;a href="https://i.stack.imgur.com/PiaIX.png"&gt;imgur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;fit&lt;/code&gt; method learns the parameter from the training data, and the &lt;code&gt;transform&lt;/code&gt; method use these parameters to transform the data. &lt;/li&gt;
+&lt;li&gt;There are other ways of handling NaN. Go find out!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="resources"&gt;Resources:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Python Machine Learning by Sebastian Raschka.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://scikit-learn.org/stable/data_transforms.html#dataset-transformations"&gt;scikit data transformation&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Data Science"></category><category term="Data Science"></category><category term="ML"></category><category term="scikit-learn"></category></entry></feed>

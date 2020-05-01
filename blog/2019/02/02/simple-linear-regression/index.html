@@ -17,9 +17,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="referrer" content="origin" />
   <meta name="generator" content="Pelican" />
-  <link href="/" rel="canonical" />
+  <link href="https://iameo.github.io/" rel="canonical" />
 
   <!-- Feed -->
+        <link href="https://iameo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Full Atom Feed" />
+          <link href="https://iameo.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
 
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
@@ -33,13 +35,13 @@
 
 <script src="https://use.fontawesome.com/5441545335.js"></script>
 
-  <link href="/theme/css/ipynb.css" type="text/css" rel="stylesheet" />
-  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="https://iameo.github.io/theme/css/ipynb.css" type="text/css" rel="stylesheet" />
+  <link href="https://iameo.github.io/theme/css/style.css" type="text/css" rel="stylesheet" />
 
 
 
   <!-- Code highlight color scheme -->
-      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+      <link href="https://iameo.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
 
 
 
@@ -59,7 +61,7 @@
 
 
 
-  <link href="/blog/2019/02/02/simple-linear-regression/" rel="canonical" />
+  <link href="https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" rel="canonical" />
 
     <meta name="description" content="I blab about Linear Regression, a bit of calculus here and there, gradient descent and made a few plots.">
 
@@ -78,11 +80,11 @@
 <meta property="og:title" content="Simple Linear Regression"/>
 <meta property="og:description" content="I blab about Linear Regression, a bit of calculus here and there, gradient descent and made a few plots."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/blog/2019/02/02/simple-linear-regression/"/>
+<meta property="og:url" content="https://iameo.github.io/blog/2019/02/02/simple-linear-regression/"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-02-02 01:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/emmanuel-okwudike.html">
+<meta property="article:author" content="https://iameo.github.io/author/emmanuel-okwudike.html">
 <meta property="article:section" content="Machine Learning"/>
 <meta property="article:tag" content="ML"/>
 <meta property="article:tag" content="math"/>
@@ -94,7 +96,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@__oemmanuel__">
     <meta name="twitter:title" content="Simple Linear Regression">
-    <meta name="twitter:url" content="/blog/2019/02/02/simple-linear-regression/">
+    <meta name="twitter:url" content="https://iameo.github.io/blog/2019/02/02/simple-linear-regression/">
 
         <meta name="twitter:image:src" content="">
       <meta name="twitter:description" content="I blab about Linear Regression, a bit of calculus here and there, gradient descent and made a few plots.">
@@ -109,10 +111,10 @@
   "author": {
     "@type": "Person",
     "name": "Emmanuel Okwudike",
-    "url": "/author/emmanuel-okwudike.html"
+    "url": "https://iameo.github.io/author/emmanuel-okwudike.html"
   },
   "image": "",
-  "url": "/blog/2019/02/02/simple-linear-regression/",
+  "url": "https://iameo.github.io/blog/2019/02/02/simple-linear-regression/",
   "description": "A simple Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and a..."
 }
 </script>
@@ -126,7 +128,7 @@
     <p class="nav-label">Menu</p>
     <ul>
 
-              <li role="presentation"><a href="/pages/contact-me.html">Contact Me</a></li>
+              <li role="presentation"><a href="https://iameo.github.io/pages/contact-me.html">Contact Me</a></li>
 
     </ul>
   </div>
@@ -139,7 +141,7 @@
     <!-- Page Header -->
         <nav id="navigation">
             <span id="home-button" class="nav-button">
-                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+                <a class="home-button" href="https://iameo.github.io/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
             </span>
           <span id="menu-button" class="nav-button">
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
@@ -161,7 +163,7 @@
   
         <span class="post-meta">
 	    <i class="fa fa-user"></i>
-                <a href="/author/emmanuel-okwudike.html">Emmanuel Okwudike</a>
+                <a href="https://iameo.github.io/author/emmanuel-okwudike.html">Emmanuel Okwudike</a>
             | <i class="fa fa-calendar"></i> <time datetime="Sat 02 February 2019">Sat 02 February 2019</time>
         </span>
 
@@ -213,7 +215,7 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 <p>where <span class="math">\(\epsilon = \left\lvert y - h_{\theta}(x) \right\rvert\)</span> </p>
 <p><span class="math">\(h_{\theta}(x) = \theta_{1} x\tag{3}\)</span></p>
 <p>Taking <span class="math">\(\theta_{0}\)</span> to be 0. That is, our <code>intercept</code> goes through the origin, as seen below.</p>
-<p><img alt="hypothesis.png" src="/images/hypothesis.png"></p>
+<p><img alt="hypothesis.png" src="https://iameo.github.io/images/hypothesis.png"></p>
 <p>We can clearly see (a) is the best fit with <span class="math">\(\theta_{1}\)</span> given as 1. Here's how:</p>
 <h5 id="calculations">Calculations:</h5>
 <p>Our training features, in vector notation: <span class="math">\(X  \epsilon \mathbb{R}^{4 \times 1}\)</span></p>
@@ -228,7 +230,7 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 <p>ii. <span class="math">\(J(\theta_{1}) = (\frac{1}{2 \times 4}) (2.37)\)</span></p>
 <p>iii. <span class="math">\(J(\theta_{1}) = (\frac{2.37}{8})\)</span>, which gives us <em>0.296</em>.</p>
 <p>Cost Function graph, after trying other arbitary values for <span class="math">\(\theta_{1}\)</span>: <br>
-<img alt="CF.png" src="/images/CostFunction.png"></p>
+<img alt="CF.png" src="https://iameo.github.io/images/CostFunction.png"></p>
 <p>So, what's the value of <span class="math">\(\theta_{1}\)</span> that minimizes <span class="math">\(J(\theta_{1})\)</span>? yeah? ONE! (CF is 0 when <span class="math">\(\theta_{1}\)</span> is 1 and 0.296 at a value of 0.8). You can tell just by eyeballing the graph. </p>
 <p><strong>IMPORTANT</strong>:</p>
 <ul>
@@ -242,7 +244,7 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 </li>
 </ul>
 <h2 id="gradient-descent">Gradient Descent</h2>
-<p><img alt="gd1.gif" src="/images/gradient-descent-400.gif"></p>
+<p><img alt="gd1.gif" src="https://iameo.github.io/images/gradient-descent-400.gif"></p>
 <p>Gradient Descent is an optimization algorithm that aids in finding the right parameters(<span class="math">\(\theta s\)</span>) that minimizes the <strong>cost function</strong>. Say we have a cost function, <span class="math">\(J(\theta_0,\theta_1) = (\frac{1}{m}) \sum_{i=1}^{m} \left| \left(h(x)_i - y_i \right)^2\right|  \label{e}\)</span> and we need to minimize it, to get the best fit for our training data, Gradient Descent goes through a routine of finding the "right" <span class="math">\(\theta s\)</span> to achieve that.</p>
 <p>Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the <em>minimum</em>. Mary would very much like to get to her helpless lamb from the top. Mary had a plan. And it was a simple plan; go down the mountain at a steady pace(<span class="math">\(\alpha\)</span>, learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she got to her lamb.</p>
 <p>Mathematically,</p>
@@ -260,7 +262,7 @@ temp 1 <span class="math">\(:= \theta_{1} - \alpha \frac{\partial}{\partial \the
 <li>Keep updating <span class="math">\(\theta_{0},\theta_{1}\)</span> to reduce the cost function <span class="math">\(J(\theta_0, \theta_1)\)</span> until we end up at a minimum.</li>
 </ol>
 <p>Graphically, </p>
-<p><img alt="gradient descent gif" src="/images/gradient-descent.gif">
+<p><img alt="gradient descent gif" src="https://iameo.github.io/images/gradient-descent.gif">
 source: <a href="https://hackernoon.com/dl03-gradient-descent-719aff91c7d6">hackernoon</a></p>
 <p>Where <span class="math">\(b\)</span> and <span class="math">\(m\)</span> could be represented as <span class="math">\(\theta_{0}\)</span> and <span class="math">\(\theta_{1}\)</span> respectively, as in our graph.</p>
 <p><strong>IMPORTANT!</strong>:
@@ -269,7 +271,7 @@ Finding the minima(local or global) step-wise isn't completely dependent on <spa
 <li>If the value of <span class="math">\(\alpha\)</span> is too small, gradient descent <em>can</em> be slow.</li>
 <li>If <span class="math">\(\alpha\)</span> is too large, gradient descent can overshot the minimum, failing to converge, or even diverge.</li>
 </ul>
-<p><img alt="GD_towardsDatascience" src="/images/GD-towardscience.png"></p>
+<p><img alt="GD_towardsDatascience" src="https://iameo.github.io/images/GD-towardscience.png"></p>
 <ul>
 <li>If you are already at a global minimum, <span class="math">\(\theta_{n}\)</span> is unchanged, i.e., <div class="math">$$
 \begin{array}{c}
@@ -1765,20 +1767,20 @@ h6:hover .anchor-link {
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=Simple Linear Regression&amp;url=/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=Simple Linear Regression&amp;url=https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="fa fa-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="fa fa-facebook-f"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="fa fa-google-plus-g"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
                 </div>
 
                 <aside class="post-tags">
-<a href="/tag/ml.html">ML</a><a href="/tag/math.html">math</a><a href="/tag/regression.html">regression</a><a href="/tag/scikit-learn.html">scikit-learn</a>                </aside>
+<a href="https://iameo.github.io/tag/ml.html">ML</a><a href="https://iameo.github.io/tag/math.html">math</a><a href="https://iameo.github.io/tag/regression.html">regression</a><a href="https://iameo.github.io/tag/scikit-learn.html">scikit-learn</a>                </aside>
 
                 <div class="clear"></div>
 
@@ -1808,7 +1810,7 @@ h6:hover .anchor-link {
     </footer>
   </section>
 
-  <script type="text/javascript" src="/theme/js/script.js"></script>
+  <script type="text/javascript" src="https://iameo.github.io/theme/js/script.js"></script>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132444432-1"></script>

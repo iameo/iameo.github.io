@@ -1717,7 +1717,25 @@ article .extras a.comments_btn:hover {
     line-height: 1.333em
 }
 
+div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
 
+.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
 /* Jupyter Notebook Markdown Tables */
 
 .jupyter-markdown-table {
@@ -2078,9 +2096,7 @@ table td:after {
 }
 
 @media only screen and (max-width: 640px) {
-    html {
-        font-size: 50%
-    }
+
     .post-share,
     .post-tags {
         max-width: none;
@@ -2095,6 +2111,28 @@ table td:after {
         font-size: 1.5em
     }
 }
+
+div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
+.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
+
 
 @media only screen and (max-width: 480px) {
     .inner {
@@ -2152,12 +2190,52 @@ table td:after {
     .post-nav-prev i {
         margin-right: -1em
     }
+
+div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
+.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
 }
 
 @media only screen and (max-width: 320px) {
     /*.pagination .pagination-label {
         display: none
     }*/
+div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
+.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    max-width: calc(100% - 2ex);
+}
+
 }
 
 
