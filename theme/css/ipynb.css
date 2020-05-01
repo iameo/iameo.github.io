@@ -1,0 +1,70 @@
+
+.text_cell .prompt {
+    display: none;
+}
+
+div.cell {
+    padding: 0;
+}
+
+div.text_cell_render {
+    padding: 0;
+}
+
+div.prompt {
+    font-size: 13px;
+    min-width: 6em;
+    text-align: right;
+}
+
+div.input_prompt {
+    padding: .7em 0.2em;
+}
+
+div.output_prompt {
+    padding: .4em .2em;
+}
+
+
+div.output_png {
+    height: 500px
+}
+
+
+div.output_area {
+    max-width: 92%
+}
+
+div.output_subarea {
+    padding: 0.5em;
+    max-width: calc(100% - 2ex);
+}
+
+div.input_area {
+    margin: .2em 0.4em;
+    max-width: 670px; /*hahaha*/
+}
+
+table.dataframe {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+table.dataframe th, td {
+    padding: 4px;
+    text-align: left;
+}
+
+pre code {
+    background-color: inherit;
+}
+
+
+
+
+@media only screen and (max-width: 640px) {
+    div.output_subarea {
+        padding: 0.5em;
+        max-width: calc(100% - 4ex);
+}
