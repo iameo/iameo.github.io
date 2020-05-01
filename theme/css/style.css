@@ -1724,7 +1724,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 .output_subarea {
@@ -1734,7 +1734,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 /* Jupyter Notebook Markdown Tables */
 
@@ -2119,7 +2119,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 .output_subarea {
@@ -2129,7 +2129,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 
@@ -2198,7 +2198,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 .output_subarea {
@@ -2208,7 +2208,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 }
 
@@ -2223,7 +2223,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 .output_subarea {
@@ -2233,7 +2233,7 @@ div.output_subarea {
     -moz-box-flex: 1;
     box-flex: 1;
     flex: 1;
-    max-width: calc(100% - 2ex);
+    max-width: calc(100% - 3ex) !important;
 }
 
 }
