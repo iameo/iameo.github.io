@@ -555,7 +555,7 @@ ol {
 }
 
 ul {
-    list-style: none
+    list-style: inherit;
 }
 
 li {
@@ -577,7 +577,6 @@ ol>li:before {
 
 ul>li:before {
     margin-top: 0.25em;
-    content: '*'
 }
 
 ol {
@@ -788,14 +787,14 @@ img {
         opacity: .9
     }
 }
-/*
+
 #blog-header {
     position: relative;
     padding: 0 0;
     background: white;
   
 }
-*/
+
 
 /*
 #blog-header:after {
@@ -805,10 +804,10 @@ img {
     left: 50%;
     bottom: 0;
     margin-left: -16em;
-    content: '';
     background: #e5e4e1
 }
 */
+
 
 .tag-template #blog-header {
     padding: 4em 0
@@ -1322,7 +1321,6 @@ article .extras a.comments_btn:hover {
     left: 50%;
     bottom: 0;
     margin-left: -16em;
-    content: '';
     background: #e5e4e1
 }
 
@@ -1911,7 +1909,6 @@ div.output_subarea {
 
 .pagination {
     position: relative;
-    height: 2em;
     margin: 0;
     padding: 2em 0;
     font-family: 'Fira Sans', sans-serif
@@ -1920,12 +1917,12 @@ div.output_subarea {
 .pagination:after {
     position: absolute;
     width: 32em;
-    height: 1px;
+    height: 2px;
     left: 50%;
     bottom: 0;
     margin-left: -16em;
     content: '';
-    background: #e5e4e1
+    background: #e5e4e1;
 }
 
 .pagination a {
@@ -1987,7 +1984,8 @@ div.output_subarea {
     display: block;
     font-size: 0.75em;
     line-height: 2.666em;
-    text-align: center
+    text-align: center;
+    background: #f5f5f5;
 }
 
 .extra-pagination {
@@ -2232,14 +2230,12 @@ div.output_subarea {
 }
 
 .container .post::after {
-
     position: absolute;
     width: 25em;
     height: 1px;
-    left: 20%;
+    left: 22%;
     bottom: 0;
     margin: 0px auto;
-    content: '';
     background: #e5e4e1;
 
 }
@@ -2286,8 +2282,9 @@ div.output_subarea {
     max-width: calc(100% - 3ex) !important;
 }
 
-
 }
+
+
 
 @media only screen and (max-width: 480px) {
     .inner {
@@ -2372,14 +2369,12 @@ div.output_subarea {
 }
 
 .container .post::after {
-
     position: absolute;
     width: 15em;
     height: 1px;
-    left: 13%;
+    left: 18%;
     bottom: 0;
     margin: 2px;
-    content: '';
     background: #e5e4e1;
 
 }
@@ -2418,7 +2413,6 @@ div.output_subarea {
     left: 20%;
     bottom: 0;
     margin: -5px;
-    content: '';
     background: #e5e4e1;
 
 }
