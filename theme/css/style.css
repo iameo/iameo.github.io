@@ -9,7 +9,7 @@ html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-size: 9px;
+    font-size: 8.5px;
     overflow-x: hidden;
 }
 
@@ -481,7 +481,7 @@ html.menu-active,
 }
 
 body {
-    font: 400 1.855em / 1.555em 'Source Sans Pro', serif;
+    font: 400 1.85em / 1.45em 'Source Sans Pro', serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -868,7 +868,10 @@ img {
     text-decoration: none;
     font-weight: inherit;
     color: #000;
-    font-size: 40px;
+    font-size: 30px;
+    border-bottom: 2.5px solid red;
+    box-shadow: 0px 1px blue;
+	
 }
 
 .blog-description {
