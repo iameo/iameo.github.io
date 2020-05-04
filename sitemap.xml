@@ -4,203 +4,203 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/</loc>
-<lastmod>2020-05-04T19:32:47-00:00</lastmod>
+<loc>https://iameo.github.io/</loc>
+<lastmod>2020-05-04T20:40:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/archives.html</loc>
-<lastmod>2020-05-04T19:32:47-00:00</lastmod>
+<loc>https://iameo.github.io/archives.html</loc>
+<lastmod>2020-05-04T20:40:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tags.html</loc>
-<lastmod>2020-05-04T19:32:47-00:00</lastmod>
+<loc>https://iameo.github.io/tags.html</loc>
+<lastmod>2020-05-04T20:40:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/categories.html</loc>
-<lastmod>2020-05-04T19:32:47-00:00</lastmod>
+<loc>https://iameo.github.io/categories.html</loc>
+<lastmod>2020-05-04T20:40:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pages/contact-me.html</loc>
-<lastmod>2020-05-04T19:32:47-00:00</lastmod>
+<loc>https://iameo.github.io/pages/contact-me.html</loc>
+<lastmod>2020-05-04T20:40:27-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/blog/2020/04/27/covid-19-ng-prediction/</loc>
+<loc>https://iameo.github.io/blog/2020/04/27/covid-19-ng-prediction/</loc>
 <lastmod>2020-04-27T12:16:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>/blog/2019/02/02/simple-linear-regression/</loc>
+<loc>https://iameo.github.io/blog/2019/02/02/simple-linear-regression/</loc>
 <lastmod>2019-02-02T01:00:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>/blog/2019/01/13/nan-what-nan-handling-missing-values/</loc>
+<loc>https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/</loc>
 <lastmod>2019-01-13T18:40:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>/blog/2019/01/11/my-analysis-on-who-suicide-data/</loc>
+<loc>https://iameo.github.io/blog/2019/01/11/my-analysis-on-who-suicide-data/</loc>
 <lastmod>2019-01-11T00:00:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>/category/articles.html</loc>
+<loc>https://iameo.github.io/category/articles.html</loc>
 <lastmod>2019-01-11T00:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/data-science.html</loc>
+<loc>https://iameo.github.io/category/data-science.html</loc>
 <lastmod>2019-01-13T18:40:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/machine-learning.html</loc>
+<loc>https://iameo.github.io/category/machine-learning.html</loc>
 <lastmod>2019-02-02T01:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/machine-learning-forecast.html</loc>
+<loc>https://iameo.github.io/category/machine-learning-forecast.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ml.html</loc>
+<loc>https://iameo.github.io/tag/ml.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/forecast.html</loc>
+<loc>https://iameo.github.io/tag/forecast.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/time-series.html</loc>
+<loc>https://iameo.github.io/tag/time-series.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/regression.html</loc>
+<loc>https://iameo.github.io/tag/regression.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/prediction.html</loc>
+<loc>https://iameo.github.io/tag/prediction.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/covid-19.html</loc>
+<loc>https://iameo.github.io/tag/covid-19.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/nigeria.html</loc>
+<loc>https://iameo.github.io/tag/nigeria.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/catboost.html</loc>
+<loc>https://iameo.github.io/tag/catboost.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/deep-learning.html</loc>
+<loc>https://iameo.github.io/tag/deep-learning.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/math.html</loc>
+<loc>https://iameo.github.io/tag/math.html</loc>
 <lastmod>2019-02-02T01:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/scikit-learn.html</loc>
+<loc>https://iameo.github.io/tag/scikit-learn.html</loc>
 <lastmod>2019-02-02T01:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/data-science.html</loc>
+<loc>https://iameo.github.io/tag/data-science.html</loc>
 <lastmod>2019-01-13T18:40:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/graphs.html</loc>
+<loc>https://iameo.github.io/tag/graphs.html</loc>
 <lastmod>2019-01-11T00:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/health.html</loc>
+<loc>https://iameo.github.io/tag/health.html</loc>
 <lastmod>2019-01-11T00:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/visuals.html</loc>
+<loc>https://iameo.github.io/tag/visuals.html</loc>
 <lastmod>2019-01-11T00:00:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/emmanuel-okwudike.html</loc>
+<loc>https://iameo.github.io/author/emmanuel-okwudike.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
