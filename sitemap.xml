@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://iameo.github.io/</loc>
-<lastmod>2020-05-02T17:21:05-00:00</lastmod>
+<lastmod>2020-05-04T12:42:19-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://iameo.github.io/archives.html</loc>
-<lastmod>2020-05-02T17:21:05-00:00</lastmod>
+<lastmod>2020-05-04T12:42:19-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://iameo.github.io/tags.html</loc>
-<lastmod>2020-05-02T17:21:05-00:00</lastmod>
+<lastmod>2020-05-04T12:42:19-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://iameo.github.io/categories.html</loc>
-<lastmod>2020-05-02T17:21:05-00:00</lastmod>
+<lastmod>2020-05-04T12:42:19-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://iameo.github.io/pages/contact-me.html</loc>
-<lastmod>2020-05-02T17:21:05-00:00</lastmod>
+<lastmod>2020-05-04T12:42:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -109,6 +109,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://iameo.github.io/tag/time-series.html</loc>
+<lastmod>2020-04-27T12:16:00+00:14</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://iameo.github.io/tag/regression.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
@@ -138,6 +145,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://iameo.github.io/tag/catboost.html</loc>
+<lastmod>2020-04-27T12:16:00+00:14</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://iameo.github.io/tag/deep-learning.html</loc>
 <lastmod>2020-04-27T12:16:00+00:14</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
