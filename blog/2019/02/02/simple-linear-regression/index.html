@@ -21,19 +21,23 @@
 
   <!-- Feed -->
         <link href="https://iameo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Full Atom Feed" />
-          <link href="https://iameo.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
+          <link href="https://iameo.github.io/feeds/{'slug': 'machine-learning'}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
 
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"></script>
 
  <!--MATHJAX-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.5/es5/startup.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.5/es5/sre/mathmaps/en.min.js"></script>
+ <!-- fallback for MATHJAX -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.min.js"></script>
 
-<script src="https://use.fontawesome.com/5441545335.js"></script>
+<!-- <script src="https://use.fontawesome.com/5441545335.js"></script> -->
 
   <link href="https://iameo.github.io/theme/css/ipynb.css" type="text/css" rel="stylesheet" />
   <link href="https://iameo.github.io/theme/css/style.css" type="text/css" rel="stylesheet" />
@@ -180,15 +184,15 @@
 </ul>
 <h4 id="notation">Notation:</h4>
 <p>The following notations will be used throughout this post, and in cases of minor changes, I shall do well to state an eleborate description as to how and why, otherwise:</p>
-<p><span class="math">\(X\)</span>   -   training input(Features)</p>
-<p><span class="math">\(y\)</span>   -   training output(Target)</p>
-<p><span class="math">\((X,y)\)</span>   -   A sample of Training set</p>
-<p><span class="math">\((X^{i}, y^{i})\)</span>   -  <em>ith</em> batch of training set</p>
-<p><span class="math">\(n\)</span>   -   Number of training features <span class="math">\((X)\)</span></p>
-<p><span class="math">\(m\)</span>   -   Number of training examples</p>
-<p><span class="math">\(\theta_{i}\)</span>   -   Parameters of our Hypothesis.</p>
+<p>(X)   -   training input(Features)</p>
+<p>(y)  -   training output(Target)</p>
+<p>((X,y))   -   A sample of Training set</p>
+<p>((X^{i}, y^{i}))    -  <em>ith</em> batch of training set</p>
+<p>(n)   -   Number of training features ((X))</p>
+<p>(m)  -   Number of training examples</p>
+<p>(\theta_{i})   -   Parameters of our Hypothesis.</p>
 <h2 id="the-concept-of-linear-regression">The Concept of Linear Regression.</h2>
-<p>The construct below shows the underlying concept of a Linear regression; given a set of predictors <span class="math">\(X\)</span> and an outcome <span class="math">\(y\)</span>, we fit a straight line that not only explains the data, but also serves as a predictive model for unseen data.</p>
+<p>The construct below shows the underlying concept of a Linear regression; given a set of predictors (X) and an outcome (y), we fit a straight line that not only explains the data, but also serves as a predictive model for unseen data.</p>
 <p>There are quite a number of assumptions to consider when using linear regression to predict outputs. However, we would be discussing the most common ones:</p>
 <ul>
 <li>
@@ -209,33 +213,33 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 <p>The cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y.</p>
 </blockquote>
 <p>Before delving into the cost function, let's shine some light on the <code>Hypothesis</code>, a parametric responsibe for getting the best function(i.e, the best line) that explains <span class="math">\(X\)</span> and <span class="math">\(y\)</span></p>
-<p>Hypothesis: <span class="math">\(h_{\theta}(x) = \theta_{0} + \theta_{1} X_{1} + \theta_{2} X_{2}+ ... + \theta_{n} X_{n} \label{a}\tag{1}\)</span></p>
+<p>Hypothesis: (h_{\theta}(x) = \theta_{0} + \theta_{1} X_{1} + \theta_{2} X_{2}+ ... + \theta_{n} X_{n} \label{a}\tag{1})</p>
 <p>Or, in our case, a SLR: 
-<span class="math">\(h_{\theta}(x) = \theta_{0} + \theta_{1} x  + \epsilon\tag{2}\)</span></p>
-<p>where <span class="math">\(\epsilon = \left\lvert y - h_{\theta}(x) \right\rvert\)</span> </p>
-<p><span class="math">\(h_{\theta}(x) = \theta_{1} x\tag{3}\)</span></p>
-<p>Taking <span class="math">\(\theta_{0}\)</span> to be 0. That is, our <code>intercept</code> goes through the origin, as seen below.</p>
-<p><img alt="hypothesis.png" src="https://iameo.github.io/images/hypothesis.png"></p>
-<p>We can clearly see (a) is the best fit with <span class="math">\(\theta_{1}\)</span> given as 1. Here's how:</p>
+(h_{\theta}(x) = \theta_{0} + \theta_{1} x + \epsilon\tag{2})</p>
+<p>where (\epsilon = \left\lvert y - h_{\theta}(x) \right\rvert)</p>
+<p>(h_{\theta}(x) = \theta_{1} x\tag{3})$</p>
+<p>Taking (\theta_{0}) to be 0. That is, our <code>intercept</code> goes through the origin, as seen below.</p>
+<p><img alt="hypothesis.png" src="{static}/images/hypothesis.png"></p>
+<p>We can clearly see (a) is the best fit with (\theta_{1}) given as 1. Here's how:</p>
 <h5 id="calculations">Calculations:</h5>
-<p>Our training features, in vector notation: <span class="math">\(X  \epsilon \mathbb{R}^{4 \times 1}\)</span></p>
-<p>The term <span class="math">\((\frac {1}{2m})\)</span> is added for convenience, so we can calculate our gradient(slope) in a much interpretable fashion.</p>
-<p>Now, let's manually try getting <span class="math">\(\theta_{1}\)</span>  that minimizes the cost function.</p>
-<p><strong>(a) Randomly picked, <span class="math">\(\theta_{1}\)</span> is 1.</strong></p>
-<p>i.  <strong>Cost Function</strong>: <span class="math">\(J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}\left\lvert(h(x)^{i} - y^{i})\right\rvert^2\)</span></p>
-<p>ii.  <span class="math">\(J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}( (\theta_{i} x^{i} - y^{i}) )^2\)</span></p>
-<p>iii.  <span class="math">\(J(\theta_{1}) = (\frac{1}{2 \times 4}) ( 0^2 + 0^2 + 0^2 + 0^2 )\)</span>, which gives us <em>0</em>.</p>
+<p>Our training features, in vector notation:  (X \epsilon \mathbb{R}^{4 \times 1})</p>
+<p>The term ((\frac {1}{2m})) is added for convenience, so we can calculate our gradient(slope) in a much interpretable fashion.</p>
+<p>Now, let's manually try getting (\theta_{1}) that minimizes the cost function.</p>
+<p><strong>(a) Randomly picked, (\theta_{1}) is 1.</strong></p>
+<p>i.  <strong>Cost Function</strong>: (J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}\left\lvert(h(x)^{i} - y^{i})\right\rvert^2)</p>
+<p>ii.  (J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}( (\theta_{i} x^{i} - y^{i}) )^2)</p>
+<p>iii.  (J(\theta_{1}) = (\frac{1}{2 \times 4}) ( 0^2 + 0^2 + 0^2 + 0^2 )), which gives us <em>0</em>.</p>
 <p><strong>(b) Randomly picked, <span class="math">\(\theta_{1}\)</span> is 0.8.</strong></p>
-<p>i. <span class="math">\(J(\theta_{1}) = (\frac{1}{2 \times 4}) |(0.8 - 1)^2 + (1.5 - 2)^2 + (2.2 - 3)^2 + (2.8 - 4) ^2 |\)</span></p>
-<p>ii. <span class="math">\(J(\theta_{1}) = (\frac{1}{2 \times 4}) (2.37)\)</span></p>
-<p>iii. <span class="math">\(J(\theta_{1}) = (\frac{2.37}{8})\)</span>, which gives us <em>0.296</em>.</p>
-<p>Cost Function graph, after trying other arbitary values for <span class="math">\(\theta_{1}\)</span>: <br>
-<img alt="CF.png" src="https://iameo.github.io/images/CostFunction.png"></p>
-<p>So, what's the value of <span class="math">\(\theta_{1}\)</span> that minimizes <span class="math">\(J(\theta_{1})\)</span>? yeah? ONE! (CF is 0 when <span class="math">\(\theta_{1}\)</span> is 1 and 0.296 at a value of 0.8). You can tell just by eyeballing the graph. </p>
+<p>i.  (J(\theta_{1}) = (\frac{1}{2 \times 4}) |(0.8 - 1)^2 + (1.5 - 2)^2 + (2.2 - 3)^2 + (2.8 - 4) ^2 |)</p>
+<p>ii. (J(\theta_{1}) = (\frac{1}{2 \times 4}) (2.37))</p>
+<p>iii. (J(\theta_{1}) = (\frac{2.37}{8})), which gives us <em>0.296</em>.</p>
+<p>Cost Function graph, after trying other arbitary values for (\theta_{1}): <br>
+<img alt="CF.png" src="{static}/images/CostFunction.png"></p>
+<p>So, what's the value of (\theta_{1}) that minimizes (J(\theta_{1}))? yeah? ONE! (CF is 0 when (\theta_{1}) is 1 and 0.296 at a value of 0.8). You can tell just by eyeballing the graph.  </p>
 <p><strong>IMPORTANT</strong>:</p>
 <ul>
 <li>
-<p>In actual practice, you'd be dealing with more than one weight and while you can manually compute your weights(parameters, <span class="math">\(\theta\)</span>) either by brute-forcing or random-guessing, it's never really a good idea to do so as it can be something of a computational nightmare. </p>
+<p>In actual practice, you'd be dealing with more than one weight and while you can manually compute your weights(parameters, (\theta)) either by brute-forcing or random-guessing, it's never really a good idea to do so as it can be something of a computational nightmare. </p>
 </li>
 <li>
 <p>In general, the cost function is often represented as:
@@ -244,36 +248,36 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 </li>
 </ul>
 <h2 id="gradient-descent">Gradient Descent</h2>
-<p><img alt="gd1.gif" src="https://iameo.github.io/images/gradient-descent-400.gif"></p>
-<p>Gradient Descent is an optimization algorithm that aids in finding the right parameters(<span class="math">\(\theta s\)</span>) that minimizes the <strong>cost function</strong>. Say we have a cost function, <span class="math">\(J(\theta_0,\theta_1) = (\frac{1}{m}) \sum_{i=1}^{m} \left| \left(h(x)_i - y_i \right)^2\right|  \label{e}\)</span> and we need to minimize it, to get the best fit for our training data, Gradient Descent goes through a routine of finding the "right" <span class="math">\(\theta s\)</span> to achieve that.</p>
-<p>Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the <em>minimum</em>. Mary would very much like to get to her helpless lamb from the top. Mary had a plan. And it was a simple plan; go down the mountain at a steady pace(<span class="math">\(\alpha\)</span>, learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she got to her lamb.</p>
+<p><img alt="gd1.gif" src="{static}/images/gradient-descent-400.gif"></p>
+<p>Gradient Descent is an optimization algorithm that aids in finding the right parameters((\theta s)) that minimizes the <strong>cost function</strong>. Say we have a cost function, (J(\theta_0,\theta_1) = (\frac{1}{m}) \sum_{i=1}^{m} \left| \left(h(x)_i - y_i \right)^2\right| \label{e}) and we need to minimize it, to get the best fit for our training data, Gradient Descent goes through a routine of finding the "right" (\theta s) to achieve that.</p>
+<p>Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the <em>minimum</em>. Mary would very much like to get to her helpless lamb from the top. Mary had a plan. And it was a simple plan; go down the mountain at a steady pace((\alpha), learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she got to her lamb.</p>
 <p>Mathematically,</p>
-<p>repeat until convergence {<br>
- <span class="math">\(\theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})\)</span>    (for j = 0 and j = 1)<br>
- }</p>
+<p>repeat until convergence {
+(\theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})) (for j = 0 and j = 1)
+}</p>
 <p>And the update is done as follow, simultaneously:</p>
-<p>temp 0 <span class="math">\(:= \theta_{0} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})\)</span><br>
-temp 1 <span class="math">\(:= \theta_{1} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})\)</span> </p>
-<p><span class="math">\(\theta_{0} := temp0\)</span><br>
-<span class="math">\(\theta_{1} := temp1\)</span></p>
+<p>temp 0 (:= \theta_{0} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1}))<br>
+temp 1 (:= \theta_{1} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1}))</p>
+<p>(\theta_{0} := temp0)<br>
+(\theta_{1} := temp1)</p>
 <h4 id="concept-of-the-gradient-descent">Concept of the Gradient Descent:</h4>
 <ol>
-<li>Start with some <span class="math">\(\theta_{0},\theta_{1}\)</span> (e.g., <span class="math">\(\theta_{0} = 0, \theta_{1} = 0\)</span> )</li>
-<li>Keep updating <span class="math">\(\theta_{0},\theta_{1}\)</span> to reduce the cost function <span class="math">\(J(\theta_0, \theta_1)\)</span> until we end up at a minimum.</li>
+<li>Start with some (\theta_{0},\theta_{1}) (e.g., (\theta_{0} = 0, \theta_{1} = 0))</li>
+<li>Keep updating (\theta_{0},\theta_{1}) to reduce the cost function (J(\theta_0, \theta_1)) until we end up at a minimum.</li>
 </ol>
 <p>Graphically, </p>
-<p><img alt="gradient descent gif" src="https://iameo.github.io/images/gradient-descent.gif">
+<p><img alt="gradient descent gif" src="{static}/images/gradient-descent.gif">
 source: <a href="https://hackernoon.com/dl03-gradient-descent-719aff91c7d6">hackernoon</a></p>
-<p>Where <span class="math">\(b\)</span> and <span class="math">\(m\)</span> could be represented as <span class="math">\(\theta_{0}\)</span> and <span class="math">\(\theta_{1}\)</span> respectively, as in our graph.</p>
+<p>Where (b) and (m) could be represented as (\theta_{0}) and (\theta_{1}) respectively, as in our graph.</p>
 <p><strong>IMPORTANT!</strong>:
-Finding the minima(local or global) step-wise isn't completely dependent on <span class="math">\(\alpha\)</span> as the gradient(slope) itself plays a major role. The weight(s), from the slope's calculations, goes against the negative gradient and keeps moving until reaching a minima. Also, worthy of note:</p>
+Finding the minima(local or global) step-wise isn't completely dependent on (\alpha) as the gradient(slope) itself plays a major role. The weight(s), from the slope's calculations, goes against the negative gradient and keeps moving until reaching a minima. Also, worthy of note:</p>
 <ul>
-<li>If the value of <span class="math">\(\alpha\)</span> is too small, gradient descent <em>can</em> be slow.</li>
-<li>If <span class="math">\(\alpha\)</span> is too large, gradient descent can overshot the minimum, failing to converge, or even diverge.</li>
+<li>If the value of (\alpha) is too small, gradient descent <em>can</em> be slow.</li>
+<li>If (\alpha) is too large, gradient descent can overshot the minimum, failing to converge, or even diverge.</li>
 </ul>
-<p><img alt="GD_towardsDatascience" src="https://iameo.github.io/images/GD-towardscience.png"></p>
+<p><img alt="GD_towardsDatascience" src="{static}/images/GD-towardscience.png"></p>
 <ul>
-<li>If you are already at a global minimum, <span class="math">\(\theta_{n}\)</span> is unchanged, i.e., <div class="math">$$
+<li>If you are already at a global minimum, (\theta_{n}) is unchanged, i.e., <div class="math">$$
 \begin{array}{c}
 \theta_{n} := \theta_{n} - \alpha \times 0\\
 \theta_{n} := \theta_{n} - 0\\
@@ -289,124 +293,9 @@ $$</div>
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -485,20 +374,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -511,39 +392,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -739,9 +608,7 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -751,24 +618,11 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -1016,9 +870,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -1057,7 +908,7 @@ div.output_area .mglyph > img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -1179,10 +1030,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -1199,24 +1046,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -1232,11 +1071,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1287,15 +1121,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -1395,7 +1222,45 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing code_cell rendered">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
@@ -1417,7 +1282,7 @@ h6:hover .anchor-link {
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1427,7 +1292,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -1445,7 +1310,8 @@ h6:hover .anchor-link {
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can see from the graph of the training data that there is a positive relationship between the age of a person and their weight.</p>
 
@@ -1457,7 +1323,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="n">lr</span><span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">17</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">]]</span> <span class="c1">#Age</span>
@@ -1466,7 +1332,7 @@ h6:hover .anchor-link {
 <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1">#learn the parameters</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1476,7 +1342,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -1502,7 +1368,7 @@ h6:hover .anchor-link {
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1512,7 +1378,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -1525,7 +1391,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -1543,7 +1409,8 @@ h6:hover .anchor-link {
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Seems like an <em>okay</em> fit.</p>
 <p>Now, let's predict the weight of a person with the age of 40.</p>
@@ -1559,7 +1426,7 @@ h6:hover .anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A 40 year old should weight about: </span><span class="si">{}</span><span class="s2"> (in Kg)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">40</span><span class="p">],])))</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1569,7 +1436,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -1590,7 +1457,7 @@ h6:hover .anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span> <span class="c1">#$\theta_{1}$</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1600,7 +1467,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -1611,58 +1478,6 @@ h6:hover .anchor-link {
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
