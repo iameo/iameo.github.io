@@ -3,28 +3,33 @@
 @import url("https://fonts.googleapis.com/css?family=Scope+One|Trocchi");
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
 
 html {
-    font-family: sans-serif;
+    font-family: 'Handlee', 'Itim', 'Source Sans Pro', cursive;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font-size: 8.5px;
     overflow-x: hidden;
 }
 
-
-
 body {
+    font-family: 'Handlee', 'Itim', 'Source Sans Pro', cursive;
     margin: 0;
     overflow-x: hidden;
-
+    font-weight: 400;
+    font-size: 2.55em;
+    line-height: 1.73em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .prompt {
     min-width: 7em;
     text-align: right;
-	
 }
 
 article,
@@ -480,13 +485,6 @@ html.menu-active,
     overflow-y: hidden
 }
 
-body {
-    font: 400 1.85em / 1.45em 'Source Sans Pro', serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-}
 
 a {
     color: rgb(1, 1, 112);
@@ -550,7 +548,7 @@ p,
 ul,
 ol {
     margin: 1.5em auto;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Handlee', 'Itim', 'Source Sans Pro', cursive;
     color: #000;
 }
 
@@ -608,7 +606,7 @@ hr {
 
 blockquote {
     font-style: italic;
-    color: #45484d;
+    color: #444649;
     margin-top:-1em;
     margin-left: .5em;
     border-left: 0.2em solid rgb(61, 73, 80);
@@ -637,18 +635,18 @@ blockquote p:last-child {
 em,
 i {
     font-style: italic;
-    color: #212226
+    color: #222225
 }
 
 strong,
 b {
     font-weight: 700;
-    color: #212226
+    color: #222225
 }
 
 small {
     font-size: 0.9em;
-    color: #45484d
+    color: #404347
 }
 
 dl {
@@ -704,8 +702,8 @@ pre {
 	display: block;
 	padding: 7px;
 	margin: 0 0 10px;
-	font-size: 13px;
-	line-height: 1.42857143;
+	font-size: 16px;
+	line-height: 1.5em;
 	color: #333;
 	word-break: break-all;
 	word-wrap: break-word;
@@ -1828,7 +1826,7 @@ div.output_subarea {
 
 .jupyter-markdown-table tr {
 	border-top: 1px solid #C1C3D1;
-	border-bottom-: 1px solid #C1C3D1;
+	border-bottom: 1px solid #C1C3D1;
 	color: #666B85;
 	font-size: 16px;
 	font-weight: normal;
@@ -1906,6 +1904,7 @@ div.output_subarea {
 .token.operator {
     background: unset !important;
 }
+
 /* Jupyter Notebook Bullet Lists */
 
 
