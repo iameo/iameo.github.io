@@ -29,8 +29,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.4/plotly.min.js"></script>
   <!-- Plotly fallback -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly-basic.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!--MATHJAX-->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -118,7 +116,7 @@
   },
   "image": "",
   "url": "https://iameo.github.io/blog/2019/02/02/simple-linear-regression/",
-  "description": "A simple Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and a..."
+  "description": "A Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and one or..."
 }
 </script>
 </head>
@@ -171,7 +169,7 @@
         </span>
 
     </header>
-	 <p>A simple Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and a single explanatory variable. It is one of the most basic and studied form of regression analysis and in machine learning, it is one of the fundamental supervised algorithms.</p>
+	 <p>A Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and one or more explanatory variables(independent variables). It is one of the most basic and studied form of regression analysis and in machine learning, it is one of the fundamental supervised algorithms. A simple Linear Regression would be between a dependent variable and an independent variable.</p>
 <p>In this post I will try explaining some of the concepts of Linear Regression using examples and having a working model in python.</p>
 <h4 id="contents">Contents:</h4>
 <ul>
@@ -216,13 +214,14 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 <p>Or, in our case, a SLR: 
 <span class="math">\(h_{\theta}(x) = \theta_{0} + \theta_{1} x + \epsilon\tag{2}\)</span></p>
 <p>where <span class="math">\(\epsilon = \left\lvert y - h_{\theta}(x) \right\rvert\)</span></p>
-<p><span class="math">\(h_{\theta}(x) = \theta_{1} x\tag{3}\)</span>$</p>
+<p><span class="math">\(h_{\theta}(x) = \theta_{1} x\tag{3}\)</span></p>
 <p>Taking <span class="math">\(\theta_{0}\)</span> to be 0. That is, our <code>intercept</code> goes through the origin, as seen below.</p>
 <p><img alt="hypothesis.png" src="/images/hypothesis.png"></p>
 <p>We can clearly see (a) is the best fit with <span class="math">\(\theta_{1}\)</span> given as 1. Here's how:</p>
 <h5 id="calculations">Calculations:</h5>
 <p>Our training features, in vector notation:  <span class="math">\(X \epsilon \mathbb{R}^{4 \times 1}\)</span></p>
-<p>The term <span class="math">\((\frac {1}{2m})\)</span> is added for convenience, so we can calculate our gradient(slope) in a much interpretable fashion.</p>
+<p>The term <span class="math">\((\frac {1}{2m})\)</span> below is added for convenience, so we can calculate our gradient(slope) in a much interpretable fashion. <span class="math">\(m\)</span> being the size of our data,
+and in this case, 4.</p>
 <p>Now, let's manually try getting <span class="math">\(\theta_{1}\)</span> that minimizes the cost function.</p>
 <p><strong>(a) Randomly picked, <span class="math">\(\theta_{1}\)</span> is 1.</strong></p>
 <p>i.  <strong>Cost Function</strong>: <span class="math">\(J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}\left\lvert(h(x)^{i} - y^{i})\right\rvert^2\)</span></p>
@@ -249,7 +248,7 @@ A monotonic model is one where changing one of the inputs have a corresponding c
 <h2 id="gradient-descent">Gradient Descent</h2>
 <p><img alt="gd1.gif" src="/images/gradient-descent-400.gif"></p>
 <p>Gradient Descent is an optimization algorithm that aids in finding the right parameters(<span class="math">\(\theta s\)</span>) that minimizes the <strong>cost function</strong>. Say we have a cost function, <span class="math">\(J(\theta_0,\theta_1) = (\frac{1}{m}) \sum_{i=1}^{m} \left| \left(h(x)_i - y_i \right)^2\right| \label{e}\)</span> and we need to minimize it, to get the best fit for our training data, Gradient Descent goes through a routine of finding the "right" <span class="math">\(\theta s\)</span> to achieve that.</p>
-<p>Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the <em>minimum</em>. Mary would very much like to get to her helpless lamb from the top. Mary had a plan. And it was a simple plan; go down the mountain at a steady pace(<span class="math">\(\alpha\)</span>, learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she got to her lamb.</p>
+<p>Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the <em>minimum</em>. Mary would very much like to get to her helpless lamb from the top. Mary has a plan. And it is a simple plan; go down the mountain at a steady pace(<span class="math">\(\alpha\)</span>, learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she gets to her lamb at the bottom.</p>
 <p>Mathematically,</p>
 <p>repeat until convergence {
 <span class="math">\(\theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})\)</span> (for j = 0 and j = 1)
@@ -1824,8 +1823,6 @@ h6:hover .anchor-link {
         gtag('config', 'UA-132444432-1', { 'anonymize_ip': true });
     </script>
     
-
-
 
 
 
