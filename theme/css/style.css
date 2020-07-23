@@ -504,7 +504,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Handlee', 'Itim', 'Source Sans Pro', serif;
     text-rendering: optimizeLegibility;
     color: #000
 }
@@ -2294,7 +2294,7 @@ div.output_subarea {
         overflow-x: auto;
         font-weight: 400;
         font-size: 0.9em;
-        line-height: 1.5em;
+        line-height: 1.53em;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -2405,7 +2405,7 @@ body {
     overflow-x: auto;
     font-weight: 400;
     font-size: 0.9em;
-    line-height: 1.5em;
+    line-height: 1.53em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
