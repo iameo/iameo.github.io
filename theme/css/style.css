@@ -21,7 +21,7 @@ body {
     overflow-x: auto;
     font-weight: 400;
     font-size: 1.15em;
-    line-height: 1.52em;
+    line-height: 1.55em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -1487,7 +1487,7 @@ h5.tag-title {
 .post-content img,
 .post-content .fluid-width-video-wrapper {
     max-width: 100%;
-    width: 94%;
+    width: 96%;
     margin: 0 auto;
     /*height: 350px;*/
 }
@@ -2138,7 +2138,7 @@ table td:after {
    .post-content img,
    .post-content .fluid-width-video-wrapper {
     max-width: 100%;
-    width: 92%;
+    width: 95%;
     margin: 0 auto;
     height: 360px;
 }
@@ -2293,8 +2293,8 @@ div.output_subarea {
         margin: 0;
         overflow-x: auto;
         font-weight: 400;
-        font-size: 0.9em;
-        line-height: 1.53em;
+        font-size: 0.95em;
+        line-height: 1.565em;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -2404,8 +2404,8 @@ body {
     margin: 0;
     overflow-x: auto;
     font-weight: 400;
-    font-size: 0.9em;
-    line-height: 1.53em;
+    font-size: 0.95em;
+    line-height: 1.6em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2414,7 +2414,7 @@ body {
 .post-content img,
 .post-content .fluid-width-video-wrapper {
      max-width: 100%;
-     width: 92%;
+     width: 95%;
      margin: 0 auto;
      height: 360px;
  }
