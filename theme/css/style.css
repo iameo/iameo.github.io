@@ -11,7 +11,7 @@ html {
     font-family: 'Handlee', 'Itim', 'Source Sans Pro', serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-size: 0.94em;
+    font-size: 0.98em;
     overflow-x: auto;
 }
 
@@ -20,8 +20,8 @@ body {
     margin: 0;
     overflow-x: auto;
     font-weight: 400;
-    font-size: 0.97em;
-    line-height: 1.55em;
+    font-size: 1em;
+    line-height: 1.6em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -702,8 +702,8 @@ pre {
 	display: block;
 	padding: 7px;
 	margin: 0 0 10px;
-	font-size: 0.75em;
-	line-height: 1.5em;
+	font-size: 0.9em;
+	line-height: 1.7em;
 	color: #320007;
 	word-break: break-all;
 	word-wrap: break-word;
@@ -2293,8 +2293,8 @@ div.output_subarea {
         margin: 0;
         overflow-x: auto;
         font-weight: 400;
-        font-size: 0.95em;
-        line-height: 1.565em;
+        font-size: 0.97em;
+        line-height: 1.63em;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -2404,8 +2404,8 @@ body {
     margin: 0;
     overflow-x: auto;
     font-weight: 400;
-    font-size: 0.95em;
-    line-height: 1.6em;
+    font-size: 0.97em;
+    line-height: 1.63em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2454,3 +2454,4 @@ div.output_subarea {
 }
 
 
+/* credit to Attila theme for serving as backbone for most styling here */
