@@ -24,7 +24,7 @@
 
   <!-- Feed -->
         <link href="https://iameo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Full Atom Feed" />
-          <link href="https://iameo.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
+          <link href="https://iameo.github.io/feeds/{'slug': 'machine-learning-forecast'}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
 
   <!-- CSS for fontawesome and animate -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -124,7 +124,7 @@
   },
   "image": "",
   "url": "https://iameo.github.io/blog/2020/04/27/covid-19-ng-prediction/",
-  "description": "/*! * * IPython notebook * */ /* CSS font colors for translated ANSI escape sequences */ /* The color values are a mix of..."
+  "description": "/*! * * IPython notebook * */ /* CSS font colors for translated ANSI colors. */ .ansibold { font-weight: bold; } /* use dark versions..."
 }
 </script>
 </head>
@@ -182,124 +182,9 @@
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -378,20 +263,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -404,39 +281,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -632,9 +497,7 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -644,24 +507,11 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -909,9 +759,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -950,7 +797,7 @@ div.output_area .mglyph > img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -1072,10 +919,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -1092,24 +935,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -1125,11 +960,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1180,15 +1010,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -1288,8 +1111,47 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Hello there, I've been gone for a long time, but you know, not like it was noticable or anything. <em><strong>cries in Eigenvectors</strong></em>. Well, if you must know the reason for my being gone for such a long time then look no further than: work, school, work, sleep, anime, sleep and just being generally lazy. Anyhow, 2020, I mean, right?</p>
 <p>Moving on....</p>
@@ -1297,21 +1159,9 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR">&#182;</a></h3><p>The models show large daily confirmed cases and suggests that easing the lockdown would not be such a good idea at this point, even daily reported cases show that.
 <img src="/images/maneuver_interstellar.jpg" alt="Interstellar-manuever"></p>
@@ -1343,26 +1193,26 @@ h6:hover .anchor-link {
 
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
 
 <span class="c1"># from sklearn.base import BaseEstimator, TransformerMixin</span>
 <span class="c1"># from sklearn.pipeline import Parallel, Pipeline, FeatureUnion</span>
 
-<span class="kn">from</span> <span class="nn">catboost</span> <span class="kn">import</span> <span class="n">CatBoostRegressor</span>
-<span class="kn">from</span> <span class="nn">lightgbm</span> <span class="kn">import</span> <span class="n">LGBMRegressor</span>
-<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">catboost</span> <span class="k">import</span> <span class="n">CatBoostRegressor</span>
+<span class="kn">from</span> <span class="nn">lightgbm</span> <span class="k">import</span> <span class="n">LGBMRegressor</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="k">import</span> <span class="n">XGBRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span> <span class="k">as</span> <span class="n">mse</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span> <span class="k">as</span> <span class="n">mse</span>
 
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">HTML</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1391,7 +1241,7 @@ h6:hover .anchor-link {
 <span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1411,13 +1261,14 @@ h6:hover .anchor-link {
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next line: Data containing the cumulated confirmed cases(as well as Recovery and Deaths) daily, country and the data is loaded. I had to drop columns I won't be using such as Province/State, Cumulated Deaths and Recovery and the date is parsed as datetime.</p>
 <p>Data Source: <a href="&#39;https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series&#39;">JohnsHopkinsUni</a></p>
@@ -1437,7 +1288,7 @@ h6:hover .anchor-link {
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1447,7 +1298,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -1522,7 +1373,7 @@ h6:hover .anchor-link {
 <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">:</span><span class="s1">&#39;Country&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1535,7 +1386,7 @@ h6:hover .anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1">#No null values. Good!</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1545,7 +1396,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -1565,21 +1416,9 @@ dtype: int64</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's dedicate a couple of lines to making graphs: worldwide and then Africa.</p>
 
@@ -1612,7 +1451,7 @@ dtype: int64</pre>
 <span class="c1">#(thousands compared to a million)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1622,7 +1461,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -1653,7 +1492,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -1732,7 +1571,7 @@ if (outputEl) {{
         <span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cumulated Confirmed Cases&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1742,7 +1581,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -1800,19 +1639,6 @@ if (outputEl) {{
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1821,7 +1647,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1835,7 +1661,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>  <span class="c1">#19th, May 2020</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1845,7 +1671,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -1927,21 +1753,9 @@ if (outputEl) {{
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Going through the data I noticed that the 20th and 21st of April had the same value of 665, which would indicate that there was no case on the 21st but there was. One of the highest cases ever recorded: 117. I checked the NCDC's site to confirm and made the required changes to that index. Also, the first case in Nigeria wasn't till the 28th of February so I had to tailor the data starting from the 27th of February, just to get rid of that long list of zeros.</p>
 <p>Let's investigate together!</p>
@@ -1958,7 +1772,7 @@ if (outputEl) {{
 <span class="c1">#No further case until the 9th of March. Take note of the index (37, so tailor from 36)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -1968,7 +1782,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -2116,7 +1930,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2126,7 +1940,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -2216,7 +2030,7 @@ if (outputEl) {{
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">NG_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">60</span><span class="p">]</span> <span class="c1">#note index 53 and 54</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2226,7 +2040,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -2350,19 +2164,6 @@ if (outputEl) {{
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2373,7 +2174,7 @@ if (outputEl) {{
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2383,7 +2184,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -2441,19 +2242,6 @@ if (outputEl) {{
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2464,7 +2252,7 @@ if (outputEl) {{
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2474,7 +2262,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -2542,7 +2330,7 @@ if (outputEl) {{
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2552,7 +2340,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -2609,7 +2397,8 @@ if (outputEl) {{
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Could you tell that flat curve just after 'Apr 19,' yeah? That's the culprit; 665 both on the 20th and 21st, while this could be a good thing meaning Nigeria had no new case on the 21st, we know that's false. In fact, we had 117 new cases on the 21st, summing it to 782. Hence, (20th) 665 - (21st) 782 - (22nd) 873 and so forth.</p>
 <p>Also, NCDC's correction for the 18th of April: 541 instead of 542. Index 51.</p>
@@ -2630,7 +2419,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">53</span><span class="p">:</span><span class="mi">56</span><span class="p">,</span> <span class="p">:]</span> <span class="c1">#perfection!</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2640,7 +2429,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -2707,7 +2496,8 @@ if (outputEl) {{
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice how I did not update the values for Cumulative Death and Recovered, as this won't be used in the model.</p>
 
@@ -2723,7 +2513,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2733,7 +2523,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -2812,7 +2602,7 @@ if (outputEl) {{
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2822,7 +2612,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -2879,7 +2669,8 @@ if (outputEl) {{
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, let's use dataFrame.diff() on the CumConfirmed Column so we can get the daily cases from it, convert possible NaNs to zeros, which should be only one at the very top(0 - 'no value' = NaN)</p>
 
@@ -2895,7 +2686,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -2905,7 +2696,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -3002,7 +2793,7 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3012,7 +2803,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -3101,7 +2892,8 @@ if (outputEl) {{
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The below graph shows that daily cases are rising fast. Noting that the virus can have an incubated window of 14 days, it's telling that the quarantine is not quite effective.</p>
 
@@ -3121,7 +2913,7 @@ if (outputEl) {{
 <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3131,7 +2923,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -3196,13 +2988,14 @@ if (outputEl) {{
 <span class="n">NG_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;CumRecovered&quot;</span><span class="p">,</span> <span class="s2">&quot;CumDeaths&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, let's slip in data for our testing. I want to make predictions for the next 8 days, starting on the 28th, and then merge with our data on the row level.</p>
 
@@ -3220,7 +3013,7 @@ if (outputEl) {{
 <span class="n">post_incident</span> <span class="c1">#the next 12 days</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3230,7 +3023,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -3326,7 +3119,7 @@ if (outputEl) {{
 <span class="n">covid19_NG</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3336,7 +3129,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -3476,7 +3269,7 @@ if (outputEl) {{
 <span class="n">covid19_NG</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3486,7 +3279,7 @@ if (outputEl) {{
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+<div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -3668,7 +3461,8 @@ if (outputEl) {{
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I checked around for news that could be of value in terms of enfineering features.</p>
 <p><strong>21-03-2020: NG bans entry of travelers from 13 countries(incl. US, Uk, Italy, France and China) [ng.usembassy.gov]  Ban to last for 4 weeks.</strong></p>
@@ -3686,19 +3480,6 @@ Travel Ban still in place.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -3721,7 +3502,7 @@ Travel Ban still in place.</p>
 <span class="c1">#Lagos, Abuja, and Kano hold high cases and the assumed lockdown was modelled from them.</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3735,7 +3516,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="p">[</span><span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;Lockdown&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Lifted&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3745,7 +3526,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -3838,7 +3619,7 @@ Travel Ban still in place.</p>
 <span class="c1">#321 - 21st of March, when ban became effective.</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3848,7 +3629,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+<div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -3927,7 +3708,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="p">[</span><span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;Border closure&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Enforced&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -3937,7 +3718,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+<div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -4020,7 +3801,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4030,7 +3811,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+<div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -4138,7 +3919,7 @@ Travel Ban still in place.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">covid19_NG</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;dayName&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;DailyConfirmed&quot;</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4148,7 +3929,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+<div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -4161,7 +3942,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 
@@ -4180,19 +3961,6 @@ Travel Ban still in place.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -4200,7 +3968,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="p">[</span><span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;DailyConfirmed&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;DailyConfirmed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4210,7 +3978,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -4221,7 +3989,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[33]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -4285,7 +4053,7 @@ Travel Ban still in place.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid19_NG</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4295,7 +4063,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -4469,7 +4237,7 @@ Travel Ban still in place.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid19_NG</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#drop date</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4483,7 +4251,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;DailyConfirmed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;DailyConfirmed&quot;</span><span class="p">])</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4497,7 +4265,7 @@ Travel Ban still in place.</p>
 <span class="n">covid19_NG</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4507,7 +4275,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+<div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -4644,7 +4412,8 @@ Travel Ban still in place.</p>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's split the data into train, validation and testing.</p>
 
@@ -4661,7 +4430,7 @@ Travel Ban still in place.</p>
 <span class="n">test</span> <span class="o">=</span> <span class="n">covid19_NG</span><span class="p">[</span><span class="n">covid19_NG</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">520</span><span class="p">]</span> <span class="c1">#test on this</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4674,7 +4443,7 @@ Travel Ban still in place.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data shape: &quot;</span><span class="p">,</span> <span class="n">covid19_NG</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Train shape: &quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Validation data shape: &quot;</span><span class="p">,</span><span class="n">val</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Test data shape: &quot;</span><span class="p">,</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4684,7 +4453,7 @@ Travel Ban still in place.</p>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -4708,13 +4477,14 @@ Test data shape:  (12, 14)
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predict for the rest of the month starting from May 20th, 2020.</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Get ready for TRAINING and TESTING!</p>
 <p><img src="/gifs/hinata.gif" alt="fight!" title="fight!"></p>
@@ -4738,7 +4508,7 @@ Test data shape:  (12, 14)
 <span class="n">Xtrain</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4748,7 +4518,7 @@ Test data shape:  (12, 14)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+<div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -4847,10 +4617,10 @@ Test data shape:  (12, 14)
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">MinMaxScaler</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4864,7 +4634,7 @@ Test data shape:  (12, 14)
 <span class="n">mm</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span> <span class="c1">#default=(0,1)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4879,20 +4649,7 @@ Test data shape:  (12, 14)
 <span class="n">Xtest_std</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 </pre></div>
 
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -4902,23 +4659,10 @@ Test data shape:  (12, 14)
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span> <span class="k">as</span> <span class="n">mse</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span> <span class="k">as</span> <span class="n">mse</span>
 </pre></div>
 
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -4940,7 +4684,7 @@ Test data shape:  (12, 14)
 <span class="p">}</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4954,13 +4698,14 @@ Test data shape:  (12, 14)
 <span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h6 id="#">#<a class="anchor-link" href="##">&#182;</a></h6>
 </div>
@@ -4971,12 +4716,12 @@ Test data shape:  (12, 14)
 <div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">cat_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">eval_set</span><span class="o">=</span><span class="p">[(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best Score: &quot;</span><span class="p">,</span> <span class="n">cat_model</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Iteration stopped at: &quot;</span><span class="p">,</span> <span class="n">cat_model</span><span class="o">.</span><span class="n">best_iteration_</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+cat_model.fit(Xtrain, ytrain, eval_set=[(Xtrain, ytrain)])
+print(&quot;Best Score: &quot;, cat_model.best_score_, &quot;\nIteration stopped at: &quot;, cat_model.best_iteration_)
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -4986,7 +4731,7 @@ Test data shape:  (12, 14)
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5013,7 +4758,7 @@ Wall time: 37.4 s
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: &quot;</span><span class="p">,</span> <span class="n">cat_rmse</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5023,7 +4768,7 @@ Wall time: 37.4 s
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5049,7 +4794,7 @@ Wall time: 37.4 s
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">(</span><span class="n">val_pred</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">yval</span><span class="p">))))</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5059,7 +4804,7 @@ Wall time: 37.4 s
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5083,7 +4828,7 @@ RMSE:  249.6401677648684
 <span class="n">test_pred_cat</span> <span class="c1">#log-transformed</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5093,7 +4838,7 @@ RMSE:  249.6401677648684
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[51]:</div>
+<div class="prompt output_prompt">Out[51]:</div>
 
 
 
@@ -5118,13 +4863,14 @@ RMSE:  249.6401677648684
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># xg_model = XGBRegressor(n_estimators=20000, learning_rate=0.0005)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h6 id="###-Random-Forest">### Random Forest<a class="anchor-link" href="####-Random-Forest">&#182;</a></h6>
 </div>
@@ -5135,11 +4881,11 @@ RMSE:  249.6401677648684
 <div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+rf_model.fit(Xtrain, ytrain)
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5149,7 +4895,7 @@ RMSE:  249.6401677648684
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5161,7 +4907,7 @@ Wall time: 15.6 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+<div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -5195,7 +4941,7 @@ Wall time: 15.6 s
 <span class="n">test_pred_rf</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5205,7 +4951,7 @@ Wall time: 15.6 s
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5230,20 +4976,7 @@ RMSE (EVALUATION):  249.4737951255527
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># list(np.round(np.expm1(covid19_NG.DailyConfirmed[:-9]), decimals=0))</span>
 </pre></div>
 
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -5254,10 +4987,10 @@ RMSE (EVALUATION):  249.4737951255527
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Neural network modelling</span>
-<span class="kn">from</span> <span class="nn">keras.wrappers.scikit_learn</span> <span class="kn">import</span> <span class="n">KerasRegressor</span>
+<span class="kn">from</span> <span class="nn">keras.wrappers.scikit_learn</span> <span class="k">import</span> <span class="n">KerasRegressor</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5267,7 +5000,7 @@ RMSE (EVALUATION):  249.4737951255527
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
@@ -5287,11 +5020,11 @@ RMSE (EVALUATION):  249.4737951255527
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
-<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="k">import</span> <span class="n">layers</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5318,7 +5051,7 @@ RMSE (EVALUATION):  249.4737951255527
 <span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5328,7 +5061,7 @@ RMSE (EVALUATION):  249.4737951255527
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5345,26 +5078,13 @@ Call initializer instance with the dtype argument instead of passing it to the c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5374,7 +5094,7 @@ Call initializer instance with the dtype argument instead of passing it to the c
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5410,7 +5130,7 @@ _________________________________________________________________
 <span class="n">Xtest_mm</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5424,7 +5144,7 @@ _________________________________________________________________
 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtrain_mm</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5434,7 +5154,7 @@ _________________________________________________________________
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+<div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -5445,7 +5165,7 @@ _________________________________________________________________
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[61]:</div>
+<div class="prompt output_prompt">Out[61]:</div>
 
 
 
@@ -5542,7 +5262,7 @@ _________________________________________________________________
 <div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span><span class="c1">#set early stopping monitor so the model stops training when it won&#39;t improve anymore</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">EarlyStopping</span><span class="c1">#set early stopping monitor so the model stops training when it won&#39;t improve anymore</span>
 
 <span class="n">early_stopping_monitor</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -5555,7 +5275,7 @@ _________________________________________________________________
 <span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5570,7 +5290,7 @@ _________________________________________________________________
 <span class="n">hist</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5580,7 +5300,7 @@ _________________________________________________________________
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+<div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -5672,33 +5392,7 @@ _________________________________________________________________
 <span class="c1"># np.expm1(test_predictions)</span>
 </pre></div>
 
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -5711,7 +5405,7 @@ _________________________________________________________________
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ensemble by weight</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5727,7 +5421,7 @@ _________________________________________________________________
 <span class="n">ensemble</span> <span class="o">=</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">cat_pred</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">rf_pred</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5748,7 +5442,7 @@ _________________________________________________________________
 <span class="n">test_predictions</span> 
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
@@ -5758,7 +5452,7 @@ _________________________________________________________________
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[67]:</div>
+<div class="prompt output_prompt">Out[67]:</div>
 
 
 
@@ -5884,7 +5578,8 @@ _________________________________________________________________
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/gifs/overfit.gif" alt="Giphy-overfit">
 Overfitting was expected due to the data being constrained to a small size.</p>
@@ -5900,26 +5595,14 @@ Overfitting was expected due to the data being constrained to a small size.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_predictions</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;submission.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Disclaimer">Disclaimer<a class="anchor-link" href="#Disclaimer">&#182;</a></h3><p>The predicted values are not to be substituted for actual future cases. The table is merely a forecast, purely for learning purposes.</p>
 
@@ -5927,7 +5610,8 @@ Overfitting was expected due to the data being constrained to a small size.</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Resources">Resources<a class="anchor-link" href="#Resources">&#182;</a></h3><ul>
 <li>Know more about the COVID-19 virus <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/global-research-on-novel-coronavirus-2019-ncov">here</a>.</li>
@@ -5939,155 +5623,13 @@ Overfitting was expected due to the data being constrained to a small size.</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/gifs/out.gif" alt="Giphy-out"></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
  
 
