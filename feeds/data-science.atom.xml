@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh - Data Science</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/data-science.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2019-01-13T18:40:00+01:00</updated><entry><title>Handling Missing Values in your Data.</title><link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="alternate"></link><published>2019-01-13T18:40:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-13:/blog/2019/01/13/nan-what-nan-handling-missing-values//</id><summary type="html">&lt;p&gt;&lt;em&gt;NaN, what NaN? How to cope with missing values without tearing up.&lt;/em&gt;&lt;/p&gt;</summary><category term="Data Science"></category><category term="ML"></category><category term="scikit-learn"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh - Data Science</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/data-science.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2019-01-13T18:40:00+01:00</updated><entry><title>Handling Missing Values in your Data.</title><link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="alternate"></link><published>2019-01-13T18:40:00+01:00</published><updated>2019-01-13T18:40:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-13:/blog/2019/01/13/nan-what-nan-handling-missing-values/</id><summary type="html">&lt;p&gt;&lt;em&gt;NaN, what NaN? How to cope with missing values without tearing up.&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Machine Learning algorithms work well depending on a number of factors; one being the quality of the presented data. In fact, preparing/preprocessing your data to make a magical input is somewhere in the critical zone on a Wizard's(here, Data Scientist) orb, and should, like other factors, be taken seriously in preparing, before pushing it into an ML vanishing cabinet.&lt;/p&gt;
+&lt;p&gt;We will look at how to achieve quality data using some preprocessing techiques inorder to build a robust machine learning model, and we might be lucky enough to test it on real data.&lt;/p&gt;
+&lt;h2 id="workflow"&gt;workflow:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Identifying missing values or unknown values.&lt;/li&gt;
+&lt;li&gt;Removing/imputing missing values from the dataset&lt;/li&gt;
+&lt;li&gt;Getting categorical data to play nice with our ML model.&lt;/li&gt;
+&lt;li&gt;Drop this. Drop that. Selecting relevant features.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Having one or more missing values(&lt;em&gt;NaN - Not a Number&lt;/em&gt;) lurking around in a dataset is something that shouldn't worry you, if any thing having not to see one in a big dataset should even scare you before you go hunting for the powerhouse behind such beauty disguised as data. Why? Like most scientific data collecting there's prone to be an error; error in reading a value or just sheer oversight, or leaving a particular field blank for a couple of reasons. These empty fields are registed as either &lt;code&gt;NULL&lt;/code&gt; or &lt;code&gt;NaN&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let's delve into some practical techniques for dealing with missing values, by either removing these NaNs or imputing them.&lt;/p&gt;
+&lt;h3 id="identifying-missing-values-or-unknown-values"&gt;Identifying missing values or unknown values.&lt;/h3&gt;
+&lt;p&gt;For the sake of this post I have prepared a sample data with some intentionally missing values so as to give us a somewhat personal insight at this.&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN.ipynb cells[2:4] %}&lt;/p&gt;
+&lt;p&gt;As we can see Age has no presence of NaN, Salary and Desk number have a value of 1. By looking at df you can point them out.&lt;/p&gt;
+&lt;p&gt;Easy peasy lemon squeezy. Let's move on, shall we?&lt;/p&gt;
+&lt;h3 id="removingimputing-missing-values-from-the-dataset"&gt;Removing/imputing missing values from the dataset.&lt;/h3&gt;
+&lt;p&gt;Simply removing missing values could be a fun task, albiet a problematic one. Inorder to do this one would have to decide on which to remove; columns(features) or rows(samples). And even then you'd still have to live through the judgemental feeling by the gods of data on why you would snap your fingers on some (potentially) good data.&lt;/p&gt;
+&lt;p&gt;Again, it's a fun task. See how:&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN?.ipynb cells[5:7] %}&lt;/p&gt;
+&lt;p&gt;Easy peasy? yeah?&lt;/p&gt;
+&lt;h4 id="nb"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;This method of dropping rows and columns can prove to be detrimental in the long run as (valuable) samples/features could be eliminated, risking a reliable analysis.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;dropna&lt;/code&gt; method is a fully equipped method. Do check around for other implementations, including dropping specific rows that contain NaNs, subsets and threshes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="imputing-missing-values"&gt;Imputing missing values&lt;/h3&gt;
+&lt;p&gt;This is the recommended approach when it's dealing with missing values. It entails replacing Nan with mean, median or mode of that particular row/column.
+A convenient way to achieve this is by using the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, as shown below:&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN?.ipynb cells[9:11] %}&lt;/p&gt;
+&lt;p&gt;Not much of a task, yeah? no? Okay. We imported the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, gave it a 'strategy' to handle the data, fitted the data and then transformed it. Easy peasy--no? Just go over it line by line.&lt;/p&gt;
+&lt;h4 id="nb_1"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;The strategy &lt;code&gt;most_frequent&lt;/code&gt; is suitable for imputing categorical feature values, for         example, a feature column that contains an encoding of color names, such as green, orange, and blue.&lt;/li&gt;
+&lt;li&gt;Understanding the scikit-learn estimator API:
+&lt;img alt="Fit-transform - sklearn" src="https://i.stack.imgur.com/PiaIX.png"&gt;
+*image source: &lt;a href="https://i.stack.imgur.com/PiaIX.png"&gt;imgur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;fit&lt;/code&gt; method learns the parameter from the training data, and the &lt;code&gt;transform&lt;/code&gt; method use these parameters to transform the data. &lt;/li&gt;
+&lt;li&gt;There are other ways of handling NaN. Go find out!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="resources"&gt;Resources:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Python Machine Learning by Sebastian Raschka.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://scikit-learn.org/stable/data_transforms.html#dataset-transformations"&gt;scikit data transformation&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Data Science"></category><category term="Data Science"></category><category term="ML"></category><category term="scikit-learn"></category></entry></feed>
