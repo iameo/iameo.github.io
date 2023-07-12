@@ -1,2 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/all.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2021-02-03T10:15:00+01:00</updated><entry><title>OOP: concise version</title><link href="https://iameo.github.io/blog/2021/02/03/oop-concise-version/" rel="alternate"></link><published>2021-02-03T10:15:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2021-02-03:/blog/2021/02/03/oop-concise-version//</id><summary type="html">&lt;p&gt;&lt;em&gt;Glimpse of Object Oriented Programming&lt;/em&gt;&lt;/p&gt;</summary><category term="OOP"></category><category term="math"></category><category term="python"></category><category term="class"></category><category term="object"></category></entry><entry><title>Covid-19 Forecasting (NG)</title><link href="https://iameo.github.io/blog/2020/04/27/covid-19-ng-prediction/" rel="alternate"></link><published>2020-04-27T12:16:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2020-04-27:/blog/2020/04/27/covid-19-ng-prediction//</id><summary type="html">&lt;p&gt;&lt;em&gt;I make a model to predict future covid-19 cases in Nigeria. Nothing fancy here but fear of the virus.&lt;/em&gt;&lt;/p&gt;</summary><category term="ML"></category><category term="forecast"></category><category term="time series"></category><category term="regression"></category><category term="prediction"></category><category term="covid-19"></category><category term="nigeria"></category><category term="catboost"></category><category term="deep learning"></category></entry><entry><title>Simple Linear Regression</title><link href="https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" rel="alternate"></link><published>2019-02-02T01:00:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-02-02:/blog/2019/02/02/simple-linear-regression//</id><summary type="html">&lt;p&gt;&lt;em&gt;I blab about Linear Regression, a bit of calculus here and there, gradient descent and made a few plots.&lt;/em&gt;&lt;/p&gt;</summary><category term="ML"></category><category term="math"></category><category term="regression"></category><category term="scikit-learn"></category></entry><entry><title>Handling Missing Values in your Data.</title><link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="alternate"></link><published>2019-01-13T18:40:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-13:/blog/2019/01/13/nan-what-nan-handling-missing-values//</id><summary type="html">&lt;p&gt;&lt;em&gt;NaN, what NaN? How to cope with missing values without tearing up.&lt;/em&gt;&lt;/p&gt;</summary><category term="Data Science"></category><category term="ML"></category><category term="scikit-learn"></category></entry><entry><title>My Analysis on WHO Suicide Data</title><link href="https://iameo.github.io/blog/2019/01/11/my-analysis-on-who-suicide-data/" rel="alternate"></link><published>2019-01-11T00:00:00+01:00</published><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-11:/blog/2019/01/11/my-analysis-on-who-suicide-data//</id><summary type="html">&lt;p&gt;&lt;em&gt;The rate of suicide in the world and where should help be targeted to inorder to reduce the numbers&lt;/em&gt;&lt;/p&gt;</summary><category term="graphs"></category><category term="health"></category><category term="visuals"></category><category term="analysis"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/all.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2023-06-27T23:34:00+01:00</updated><entry><title>HTTPS: Moving on from EC2 Instance's HTTP</title><link href="https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" rel="alternate"></link><published>2023-06-27T23:34:00+01:00</published><updated>2023-06-27T23:34:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2023-06-27:/blog/2023/06/27/https-moving-on-from-ec2-http/</id><summary type="html">&lt;p&gt;&lt;em&gt;I move on from HTTP to HTTPS; for security and other benefits&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past year I've been building and improving VoIP services - at first it was a hobby then it turned into a professional skill for a SaaS firm. This article reflects on the hobby phase and the cross-origin issue I had.&lt;sup&gt;&lt;a href="#footnote1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;[enter &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" title="cors - bane of my web development existence"&gt;CORS&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;It's February, 2022 and I'm watching a Twilio Conference on YouTube; the next couple of days I'll put to use the Twilio documentation.&lt;/p&gt;
+&lt;p&gt;I have two projects on AWS in regards to this hobby: a rest API utilizing the powers of Twilio — from buying a local number (from a few supported countries) to handling voice calls, running on an &lt;a href="https://aws.amazon.com/ec2/"&gt;EC2 instance.&lt;/a&gt; And other project — a web service that hits the API's endpoints. As a fun project, just for me and a colleague to play around with, NGROK was sufficient for local hosting; running a &lt;em&gt;temporary&lt;/em&gt; HTTPS It eliminated cross-origin issues, but the con with this 'hack' was its fragility in terms of custom domain availability and short-term use. Also, worthy of note that I could not serve this API on render, vercel or even Heroku as it is quite dense, and it affected performance and latency.&lt;/p&gt;
+&lt;p&gt;For the purpose of having my Web service to conveniently hit my API, I had to set both up as HTTPS — moving on from HTTP.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL). The protocol is therefore also referred to as HTTP over TLS, or HTTP over SSL. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span style="font-size: smaller"&gt;My Web service had to be HTTPS as well as it uses audio connectivity on browsers and this is disabled on HTTP by browsers. And to allow HTTPS-HTTPS cmmunication&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Moving on, I assume these things:
+- you have an EC2 instance running a live project (and preferably running on Ubuntu)
+- you have nginx properly configured (hence technically sound in reverse proxy?)
+- you have Security Groups on this instance properly configured (&lt;strong&gt;80 on HTTP; 443 on HTTPS; and additional PORTS you may need&lt;/strong&gt;)
+- your elastic IP points to your ec2 instance that has an active service (in my case gunicorn for my flask application)&lt;/p&gt;
+&lt;p&gt;To cut cost, we are not using Route 53, Certificate Manager and a Load Balancer to achieve running your instance on HTTPS — in a production, I strongly advise making use of these services. Even more so, if you have just a single instance for your application then this article suits you, &lt;span style="font-size: smaller"&gt;but it's not an excuse to not use the aforementioned services.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id="getting-a-domain"&gt;Getting a Domain&lt;/h3&gt;
+&lt;p&gt;As at June 2023, Freenom Domain registrations and services are down, so I had to opt for buying a domain.  Yikes! &lt;/p&gt;
+&lt;div style="text-align: center"&gt;
+    &lt;img class="force-display" src="https://media.tenor.com/POm7fis_GHQAAAAd/ptdr.gif" alt="yikes!" width="400" height="300"&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This step is entirely down to your preferences; from cost, depending on the domain, to domain provider. I purchased a .com.ng on WhogoHost, a domain provider based in Nigeria.&lt;/p&gt;
+&lt;p&gt;Depending on the domain provider most of the DNS informations will be automatically filled while allowing edit where necessary, under &lt;strong&gt;DNS manager&lt;/strong&gt;. This step is ideally initiated once &lt;strong&gt;Add New Zone&lt;/strong&gt; is triggered.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="whogohost - manage DNS" src="/images/manage_dns.png" title="whogohost - manage DNS"&gt;
+&lt;p style="text-align: center; font-size: smaller"&gt;screenshot of whogohost dashboard&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="whogohost - add new zone" src="/images/add_new_zone.png" title="whogohost - add new zone"&gt;
+&lt;p style="text-align: center; font-size: smaller"&gt;screenshot of whogohost dashboard - add new zone&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Zone name points to your domain name. IP Address points to your Elastic IP address.&lt;sup&gt;&lt;a href="#footnote2"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="AWS EC2 connect - active nginx" src="/images/nginx_active.png" title="AWS EC2 connect - active nginx"&gt;
+&lt;p style="text-align: center; font-size: smaller"&gt;EC2 instance terminal showing active nginx&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Ensure your NGINX is running and try visiting your domain (http) - you are likely to hit a server issue here as it takes time for DNS changes to reflect, especially after registering one.&lt;/p&gt;
+&lt;p&gt;Good? proceed to.....&lt;/p&gt;
+&lt;h3 id="configuring-instance-for-https"&gt;Configuring Instance for HTTPS&lt;/h3&gt;
+&lt;p&gt;In order to use Certbot, you need a live HTTP website (domain) with an open PORT 80 (EC2's Security Group) which is hosted on a server; in our case Ubuntu server.&lt;/p&gt;
+&lt;p&gt;In your machine's terminal (EC2 connect/SSH):&lt;/p&gt;
+&lt;p&gt;Installing snapd...&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A snap is a bundle of one or more applications ("apps") and their dependencies that  works without modification across many different Linux distributions. Snaps are discoverable and installable from the Snap Store, an app store with an audience of millions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;While the below is finetuned for Nginx on Ubuntu, visit &lt;a href="https://certbot.eff.org/instructions?ws=nginx&amp;amp;os=ubuntufocal" title="certbox instructions for all"&gt;certbox instructions&lt;/a&gt; to use commands based on your web server.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo snap install core&lt;span class="p"&gt;;&lt;/span&gt; sudo snap refresh core
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo snap install --classic certbot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo certbot --nginx -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;span style="font-size: smaller"&gt;Before running the last command make sure your domain has been properly configured and you get "All ok!" on &lt;a href="https://letsdebug.net/"&gt;Let's Debug&lt;/a&gt;. Upon succession, your nginx file is automatically modified to reflect the SSL changes (SSL port, SSL certification, SSL certification key)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A typical success output, generated by certbot:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Performing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;following&lt;/span&gt; &lt;span class="n"&gt;challenges&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt; &lt;span class="n"&gt;challenge&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt;
+&lt;span class="n"&gt;Waiting&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;verification&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;Cleaning&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;challenges&lt;/span&gt;
+
+&lt;span class="n"&gt;Successfully&lt;/span&gt; &lt;span class="n"&gt;received&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Certificate&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;saved&lt;/span&gt; &lt;span class="k"&gt;at&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fullchain&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;
+&lt;span class="k"&gt;Key&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;saved&lt;/span&gt; &lt;span class="k"&gt;at&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;         &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;live&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;privkey&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt;
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="n"&gt;xx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;These&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;updated&lt;/span&gt; &lt;span class="k"&gt;when&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="n"&gt;renews&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Certbot&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;scheduled&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;automatically&lt;/span&gt; &lt;span class="n"&gt;renew&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;Deploying&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt;
+&lt;span class="n"&gt;Deploying&lt;/span&gt; &lt;span class="n"&gt;Certificate&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;VirtualHost&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Successfully&lt;/span&gt; &lt;span class="n"&gt;deployed&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;yourdomain&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Deploying&lt;/span&gt; &lt;span class="n"&gt;Certificate&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;VirtualHost&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Successfully&lt;/span&gt; &lt;span class="n"&gt;deployed&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;yourdomain&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Redirecting&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="n"&gt;traffic&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ssl&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Redirecting&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="n"&gt;traffic&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ssl&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+&lt;span class="n"&gt;Congratulations&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt; &lt;span class="n"&gt;enabled&lt;/span&gt; &lt;span class="n"&gt;HTTPS&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yourdomain&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Visit your domain on https: https://yourdomain&lt;/p&gt;
+&lt;p&gt;&lt;img alt="https enabled" src="/images/emvoip.png" title="HTTPS enabled"&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3 id="challanges"&gt;Challanges&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;subsequent to purchasing and adding a new zone in my DNS manager dashboard I could not access my site nor check its DNS information on Let's Debug showed me this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NoRecords FATAL\
+No valid A or AAAA records could be ultimately resolved for emvoip.com.ng.\
+This means that Let's Encrypt would not be able to connect to your domain to perform HTTP validation, since it would not know where to connect to.\
+No A or AAAA records found.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Incidentally, trying to reach your domain on a browser would result to this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This site can’t be reached\
+Check if there is a typo in emvoip.com.ng.\
+If spelling is correct, try running Windows Network Diagnostics.\
+DNS_PROBE_FINISHED_NXDOMAIN&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;On any DNS Check tool you are likely to see the same as below for your domain, at this point.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="dns fail" src="/images/dnspropatefail.png" title="DNS yet to propagate"&gt;&lt;/p&gt;
+&lt;p&gt;Fix: It can take a while for DNS changes to reflect on all nodes. Making sure my A record points to my Elastic IP and having to wait for about 110 minutes, I was able to have my API running on my domain (HTTP) before moving on to establish SSL. You can check your DNS propagation here: &lt;a href="https://dnschecker.org/" title="CHECK DNS PROPAGATION"&gt;DNS Checker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="DNS propagating fairly" src="/images/dns_propagate_fair.png" title="DNS propagating fairly"&gt;
+&lt;p style="text-align: center; font-size: smaller"&gt;After a long, long time DNS is propagating fairly&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;
+- &lt;strong&gt;Connect using EC2 Instance Connect&lt;/strong&gt; failed multiple times with the error message as seen below.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Failed to connect to your instance\
+Error establishing SSH connection to your instance. Try again later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;"Fix": I had to check my Security Group to enable PORT 22&lt;sup&gt;&lt;a href="#footnote3"&gt;3&lt;/a&gt;&lt;/sup&gt; for incoming connections, but saw it enabled already. Culprit ended up being IP related (running, at the time, a new network connection). I think. Anyhow I had to SSH instead, as a quick fix using &lt;code&gt;ssh -i "KEYNAME.pem" ubuntu@ec2-ela-stic-ip.compute-1.amazonaws.com&lt;/code&gt; on my local machine.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;
+- DNS taking darn too long to propagate&lt;/p&gt;
+&lt;p&gt;Fix: &lt;strong&gt;&lt;em&gt;sleep&lt;/em&gt;&lt;/strong&gt;&lt;sup&gt;&lt;a href="#footnote4"&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div style="text-align: center"&gt;
+    &lt;img class="force-display" src="https://media3.giphy.com/media/RMMNGb1KGmIX9LFei6/giphy.gif?cid=ecf05e47h9yx982kwvqc1u054g3zw1h3fbgqtg4dl8hn0tfc&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" alt="close curtain!" width="400" height="300"&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h3 id="references"&gt;References&lt;/h3&gt;
+&lt;p&gt;Official certbox website &lt;a href="https://certbot.eff.org/"&gt;certbox homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Oficial snapcraft website &lt;a href="https://snapcraft.io/"&gt;linux snap&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Domain provider used &lt;a href="https://www.whogohost.ng/"&gt;whogohost&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Amazon Web Services &lt;a href="https://aws.amazon.com/"&gt;AWS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;SSL: &lt;a href="https://www.cloudflare.com/learning/ssl/what-is-ssl/"&gt;what is SSL (Secure Sockets Layer)?&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;TTL: &lt;a href="https://www.cloudns.net/wiki/article/188/" title="TTL"&gt;What is TTL?&lt;/a&gt;
+&amp;nbsp;
+&lt;p&gt;&lt;/p&gt;
+&amp;nbsp;
+&lt;p&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name="footnote1"&gt;1&lt;/a&gt; On production level, this API is modeled as a microservice with AWS Load Balancer, CodePipeline, CloudWatch, CloudFront, Route 53, S3, and a couple more Amazon Web Services to ensure better performance, robustness and general security. &lt;a href="https://aws.amazon.com/" title="AWS"&gt;check out Amazon Web Services here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name="footnote2"&gt;2&lt;/a&gt; &lt;a href="https://support.dnsimple.com/articles/a-record/#:~:text=An%20A%20record%20uses%20a,A%20record%20stands%20for%20Address" title="What's an A record"&gt;What is A record&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name="footnote3"&gt;3&lt;/a&gt; Myth or Legend? &lt;a href="https://stackoverflow.com/questions/44802363/cannot-connect-to-ec2-ssh-connect-to-host-port-22-connection-refused" title="port 22 and the prisoner of IPban"&gt;Port 22 - EC2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name="footnote4"&gt;4&lt;/a&gt; Seriously, sleep! &lt;a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" title="sleep faster..."&gt;see this&lt;/a&gt;&lt;/p&gt;</content><category term="DevOps"></category><category term="ssl"></category><category term="https"></category><category term="aws"></category><category term="flask"></category><category term="api"></category><category term="ubuntu"></category><category term="nginx"></category><category term="web development"></category><category term="devOps"></category><category term="backend"></category></entry><entry><title>OOP: concise version</title><link href="https://iameo.github.io/blog/2021/02/03/oop-concise-version/" rel="alternate"></link><published>2021-02-03T10:15:00+01:00</published><updated>2021-02-03T10:15:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2021-02-03:/blog/2021/02/03/oop-concise-version/</id><summary type="html">&lt;p&gt;&lt;em&gt;Glimpse of Object Oriented Programming&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;{% notebook ./notebooks/oop.ipynb %}&lt;/p&gt;</content><category term="Machine Learning"></category><category term="OOP"></category><category term="math"></category><category term="python"></category><category term="class"></category><category term="object"></category></entry><entry><title>Covid-19 Forecasting (NG)</title><link href="https://iameo.github.io/blog/2020/04/27/covid-19-ng-prediction/" rel="alternate"></link><published>2020-04-27T12:16:00+01:00</published><updated>2020-04-27T12:16:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2020-04-27:/blog/2020/04/27/covid-19-ng-prediction/</id><summary type="html">&lt;p&gt;&lt;em&gt;I make a model to predict future covid-19 cases in Nigeria. Nothing fancy here but fear of the virus.&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;{% notebook ./notebooks/Covid19_Forecasting(NG).ipynb %}&lt;/p&gt;</content><category term="Machine Learning, Forecast"></category><category term="ML"></category><category term="forecast"></category><category term="time series"></category><category term="regression"></category><category term="prediction"></category><category term="covid-19"></category><category term="nigeria"></category><category term="catboost"></category><category term="deep learning"></category></entry><entry><title>Simple Linear Regression</title><link href="https://iameo.github.io/blog/2019/02/02/simple-linear-regression/" rel="alternate"></link><published>2019-02-02T01:00:00+01:00</published><updated>2019-02-02T01:00:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-02-02:/blog/2019/02/02/simple-linear-regression/</id><summary type="html">&lt;p&gt;&lt;em&gt;I blab about Linear Regression, a bit of calculus here and there, gradient descent and made a few plots.&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;A Linear Regression is a statistical approach to modelling the relationship between a scalar response(dependent variable) and one or more explanatory variables(independent variables). It is one of the most basic and studied form of regression analysis and in machine learning, it is one of the fundamental supervised algorithms. A simple Linear Regression would be between a dependent variable and an independent variable.&lt;/p&gt;
+&lt;p&gt;In this post I will try explaining some of the concepts of Linear Regression using examples and having a working model in python.&lt;/p&gt;
+&lt;h4 id="contents"&gt;Contents:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The concept of Linear Regression.&lt;/li&gt;
+&lt;li&gt;Cost Function. A bit of mathematical inference of the Cost Function.&lt;/li&gt;
+&lt;li&gt;Gradient Descent! &lt;/li&gt;
+&lt;li&gt;Working out an LR example.&lt;/li&gt;
+&lt;li&gt;Conclusion and Resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="notation"&gt;Notation:&lt;/h4&gt;
+&lt;p&gt;The following notations will be used throughout this post, and in cases of minor changes, I shall do well to state an eleborate description as to how and why, otherwise:&lt;/p&gt;
+&lt;p&gt;$X$   -   training input(Features)&lt;/p&gt;
+&lt;p&gt;$y$  -   training output(Target)&lt;/p&gt;
+&lt;p&gt;$(X,y)$   -   A sample of Training set&lt;/p&gt;
+&lt;p&gt;$(X^{i}, y^{i})$    -  &lt;em&gt;ith&lt;/em&gt; batch of training set&lt;/p&gt;
+&lt;p&gt;$n$   -   Number of training features $(X)$&lt;/p&gt;
+&lt;p&gt;$m$  -   Number of training examples&lt;/p&gt;
+&lt;p&gt;$\theta_{i}$   -   Parameters of our Hypothesis.&lt;/p&gt;
+&lt;h2 id="the-concept-of-linear-regression"&gt;The Concept of Linear Regression.&lt;/h2&gt;
+&lt;p&gt;The construct below shows the underlying concept of a Linear regression; given a set of predictors $X$ and an outcome $y$, we fit a straight line that not only explains the data, but also serves as a predictive model for unseen data.&lt;/p&gt;
+&lt;p&gt;There are quite a number of assumptions to consider when using linear regression to predict outputs. However, we would be discussing the most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Separability/additivity&lt;/strong&gt;:
+It's a very big assumption that plays on the effects of things in isolation adds up when they happen together. In layman's terms, If there exist multiple pieces of information that would affect the outcome of the prediction, each of the available information could be summed up as if they were being used in isolation. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Monotonicity/linearity&lt;/strong&gt;:
+A monotonic model is one where changing one of the inputs have a corresponding change(up or down) in the response variable. It assumes as the explanatory variables increase so should the outcome, which isn't always true. Thus, monotonicity holds less compared to the linearity of a model, which is merely a restriction on the parameters(regression coefficients), and speaks loudly of the linear relationship between the mean of the response variable and the explanatory variables.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lack of perfect multicollinearity in the predictors.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cost-function"&gt;Cost Function&lt;/h2&gt;
+&lt;p&gt;Put simply, &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Before delving into the cost function, let's shine some light on the &lt;code&gt;Hypothesis&lt;/code&gt;, a parametric responsibe for getting the best function(i.e, the best line) that explains $X$ and $y$&lt;/p&gt;
+&lt;p&gt;Hypothesis: $h_{\theta}(x) = \theta_{0} + \theta_{1} X_{1} + \theta_{2} X_{2}+ ... + \theta_{n} X_{n} \label{a}\tag{1}$&lt;/p&gt;
+&lt;p&gt;Or, in our case, a SLR: 
+$h_{\theta}(x) = \theta_{0} + \theta_{1} x + \epsilon\tag{2}$&lt;/p&gt;
+&lt;p&gt;where $\epsilon = \left\lvert y - h_{\theta}(x) \right\rvert$&lt;/p&gt;
+&lt;p&gt;$h_{\theta}(x) = \theta_{1} x\tag{3}$&lt;/p&gt;
+&lt;p&gt;Taking $\theta_{0}$ to be 0. That is, our &lt;code&gt;intercept&lt;/code&gt; goes through the origin, as seen below.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="hypothesis.png" src="/images/hypothesis.png"&gt;&lt;/p&gt;
+&lt;p&gt;We can clearly see (a) is the best fit with $\theta_{1}$ given as 1. Here's how:&lt;/p&gt;
+&lt;h5 id="calculations"&gt;Calculations:&lt;/h5&gt;
+&lt;p&gt;Our training features, in vector notation:  $X \epsilon \mathbb{R}^{4 \times 1}$&lt;/p&gt;
+&lt;p&gt;The term $(\frac {1}{2m})$ below is added for convenience, so we can calculate our gradient(slope) in a much interpretable fashion. $m$ being the size of our data,
+and in this case, 4.&lt;/p&gt;
+&lt;p&gt;Now, let's manually try getting $\theta_{1}$ that minimizes the cost function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(a) Randomly picked, $\theta_{1}$ is 1.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;i.  &lt;strong&gt;Cost Function&lt;/strong&gt;: $J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}\left\lvert(h(x)^{i} - y^{i})\right\rvert^2$&lt;/p&gt;
+&lt;p&gt;ii.  $J(\theta_{1}) = (\frac{1}{2m}) \sum_{i=1}^{m}( (\theta_{i} x^{i} - y^{i}) )^2$&lt;/p&gt;
+&lt;p&gt;iii.  $J(\theta_{1}) = (\frac{1}{2 \times 4}) ( 0^2 + 0^2 + 0^2 + 0^2 )$, which gives us &lt;em&gt;0&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(b) Randomly picked, $\theta_{1}$ is 0.8.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;i.  $J(\theta_{1}) = (\frac{1}{2 \times 4}) |(0.8 - 1)^2 + (1.5 - 2)^2 + (2.2 - 3)^2 + (2.8 - 4) ^2 |$&lt;/p&gt;
+&lt;p&gt;ii. $J(\theta_{1}) = (\frac{1}{2 \times 4}) (2.37)$&lt;/p&gt;
+&lt;p&gt;iii. $J(\theta_{1}) = (\frac{2.37}{8})$, which gives us &lt;em&gt;0.296&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Cost Function graph, after trying other arbitary values for $\theta_{1}$: &lt;br&gt;
+&lt;img alt="CF.png" src="/images/CostFunction.png"&gt;&lt;/p&gt;
+&lt;p&gt;So, what's the value of $\theta_{1}$ that minimizes $J(\theta_{1})$? yeah? ONE! (CF is 0 when $\theta_{1}$ is 1 and 0.296 at a value of 0.8). You can tell just by eyeballing the graph.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In actual practice, you'd be dealing with more than one weight and while you can manually compute your weights(parameters, $\theta$) either by brute-forcing or random-guessing, it's never really a good idea to do so as it can be something of a computational nightmare. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In general, the cost function is often represented as:
+$$J(\theta) = (\frac{1}{2}) \sum_{i=1}^{m}\left\lvert(h(x)^{i} - y^{i})\right\rvert^2$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="gradient-descent"&gt;Gradient Descent&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="gd1.gif" src="/images/gradient-descent-400.gif"&gt;&lt;/p&gt;
+&lt;p&gt;Gradient Descent is an optimization algorithm that aids in finding the right parameters($\theta s$) that minimizes the &lt;strong&gt;cost function&lt;/strong&gt;. Say we have a cost function, $J(\theta_0,\theta_1) = (\frac{1}{m}) \sum_{i=1}^{m} \left| \left(h(x)_i - y_i \right)^2\right| \label{e}$ and we need to minimize it, to get the best fit for our training data, Gradient Descent goes through a routine of finding the "right" $\theta s$ to achieve that.&lt;/p&gt;
+&lt;p&gt;Gradient Descent, in non-zorgon: Mary's lamb is at the bottom of a mountain, the &lt;em&gt;minimum&lt;/em&gt;. Mary would very much like to get to her helpless lamb from the top. Mary has a plan. And it is a simple plan; go down the mountain at a steady pace($\alpha$, learning rate), but how would a blindfolded Mary tell what way's down? She came up with the idea of feeling her environment(gradient/slope), until she gets to her lamb at the bottom.&lt;/p&gt;
+&lt;p&gt;Mathematically,&lt;/p&gt;
+&lt;p&gt;repeat until convergence {
+$\theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})$ (for j = 0 and j = 1)
+}&lt;/p&gt;
+&lt;p&gt;And the update is done as follow, simultaneously:&lt;/p&gt;
+&lt;p&gt;temp 0 $:= \theta_{0} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})$&lt;br&gt;
+temp 1 $:= \theta_{1} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta_{0}, \theta_{1})$&lt;/p&gt;
+&lt;p&gt;$\theta_{0} := temp0$&lt;br&gt;
+$\theta_{1} := temp1$&lt;/p&gt;
+&lt;h4 id="concept-of-the-gradient-descent"&gt;Concept of the Gradient Descent:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Start with some $\theta_{0},\theta_{1}$ (e.g., $\theta_{0} = 0, \theta_{1} = 0$)&lt;/li&gt;
+&lt;li&gt;Keep updating $\theta_{0},\theta_{1}$ to reduce the cost function $J(\theta_0, \theta_1)$ until we end up at a minimum.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Graphically, &lt;/p&gt;
+&lt;p&gt;&lt;img alt="gradient descent gif" src="/images/gradient-descent.gif"&gt;
+source: &lt;a href="https://hackernoon.com/dl03-gradient-descent-719aff91c7d6"&gt;hackernoon&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Where $b$ and $m$ could be represented as $\theta_{0}$ and $\theta_{1}$ respectively, as in our graph.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT!&lt;/strong&gt;:
+Finding the minima(local or global) step-wise isn't completely dependent on $\alpha$ as the gradient(slope) itself plays a major role. The weight(s), from the slope's calculations, goes against the negative gradient and keeps moving until reaching a minima. Also, worthy of note:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the value of $\alpha$ is too small, gradient descent &lt;em&gt;can&lt;/em&gt; be slow.&lt;/li&gt;
+&lt;li&gt;If $\alpha$ is too large, gradient descent can overshot the minimum, failing to converge, or even diverge.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="GD_towardsDatascience" src="/images/GD-towardscience.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you are already at a global minimum, $\theta_{n}$ is unchanged, i.e., $$
+\begin{array}{c}
+\theta_{n} := \theta_{n} - \alpha \times 0\
+\theta_{n} := \theta_{n} - 0\
+\theta_{n} := \theta_{n}\
+\end{array}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="working-out-an-example"&gt;Working out an example:&lt;/h2&gt;
+&lt;p _="%" class="/notebooks/Simple_LR.ipynb" notebook&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4 id="conclusion"&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;Linear regression models are a good starting point for regression tasks and while this is an overview of a Simple Linear Regression, do take note that implementations of the regression technique are beyond the scope of what you've seen to this point.&lt;/p&gt;
+&lt;p&gt;I had hoped this would contain as much math as I would like but I'm quite ok with the content. In practice it requires a lot of math to &lt;strong&gt;really&lt;/strong&gt; understand the fundamentals.&lt;/p&gt;
+&lt;h4 id="resources"&gt;Resources&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Mastering Machine Learning with scikit-learn (by Gavin Hackeling)&lt;/li&gt;
+&lt;li&gt;Andrew NG's course on Machine Learning.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Linear_regression"&gt;Wikipedia - Linear Regression&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Machine Learning"></category><category term="ML"></category><category term="math"></category><category term="regression"></category><category term="scikit-learn"></category></entry><entry><title>Handling Missing Values in your Data.</title><link href="https://iameo.github.io/blog/2019/01/13/nan-what-nan-handling-missing-values/" rel="alternate"></link><published>2019-01-13T18:40:00+01:00</published><updated>2019-01-13T18:40:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-13:/blog/2019/01/13/nan-what-nan-handling-missing-values/</id><summary type="html">&lt;p&gt;&lt;em&gt;NaN, what NaN? How to cope with missing values without tearing up.&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Machine Learning algorithms work well depending on a number of factors; one being the quality of the presented data. In fact, preparing/preprocessing your data to make a magical input is somewhere in the critical zone on a Wizard's(here, Data Scientist) orb, and should, like other factors, be taken seriously in preparing, before pushing it into an ML vanishing cabinet.&lt;/p&gt;
+&lt;p&gt;We will look at how to achieve quality data using some preprocessing techiques inorder to build a robust machine learning model, and we might be lucky enough to test it on real data.&lt;/p&gt;
+&lt;h2 id="workflow"&gt;workflow:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Identifying missing values or unknown values.&lt;/li&gt;
+&lt;li&gt;Removing/imputing missing values from the dataset&lt;/li&gt;
+&lt;li&gt;Getting categorical data to play nice with our ML model.&lt;/li&gt;
+&lt;li&gt;Drop this. Drop that. Selecting relevant features.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Having one or more missing values(&lt;em&gt;NaN - Not a Number&lt;/em&gt;) lurking around in a dataset is something that shouldn't worry you, if any thing having not to see one in a big dataset should even scare you before you go hunting for the powerhouse behind such beauty disguised as data. Why? Like most scientific data collecting there's prone to be an error; error in reading a value or just sheer oversight, or leaving a particular field blank for a couple of reasons. These empty fields are registed as either &lt;code&gt;NULL&lt;/code&gt; or &lt;code&gt;NaN&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let's delve into some practical techniques for dealing with missing values, by either removing these NaNs or imputing them.&lt;/p&gt;
+&lt;h3 id="identifying-missing-values-or-unknown-values"&gt;Identifying missing values or unknown values.&lt;/h3&gt;
+&lt;p&gt;For the sake of this post I have prepared a sample data with some intentionally missing values so as to give us a somewhat personal insight at this.&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN.ipynb cells[2:4] %}&lt;/p&gt;
+&lt;p&gt;As we can see Age has no presence of NaN, Salary and Desk number have a value of 1. By looking at df you can point them out.&lt;/p&gt;
+&lt;p&gt;Easy peasy lemon squeezy. Let's move on, shall we?&lt;/p&gt;
+&lt;h3 id="removingimputing-missing-values-from-the-dataset"&gt;Removing/imputing missing values from the dataset.&lt;/h3&gt;
+&lt;p&gt;Simply removing missing values could be a fun task, albiet a problematic one. Inorder to do this one would have to decide on which to remove; columns(features) or rows(samples). And even then you'd still have to live through the judgemental feeling by the gods of data on why you would snap your fingers on some (potentially) good data.&lt;/p&gt;
+&lt;p&gt;Again, it's a fun task. See how:&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN?.ipynb cells[5:7] %}&lt;/p&gt;
+&lt;p&gt;Easy peasy? yeah?&lt;/p&gt;
+&lt;h4 id="nb"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;This method of dropping rows and columns can prove to be detrimental in the long run as (valuable) samples/features could be eliminated, risking a reliable analysis.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;dropna&lt;/code&gt; method is a fully equipped method. Do check around for other implementations, including dropping specific rows that contain NaNs, subsets and threshes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="imputing-missing-values"&gt;Imputing missing values&lt;/h3&gt;
+&lt;p&gt;This is the recommended approach when it's dealing with missing values. It entails replacing Nan with mean, median or mode of that particular row/column.
+A convenient way to achieve this is by using the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, as shown below:&lt;/p&gt;
+&lt;p&gt;{% notebook ./notebooks/NaN_What_NaN?.ipynb cells[9:11] %}&lt;/p&gt;
+&lt;p&gt;Not much of a task, yeah? no? Okay. We imported the &lt;code&gt;Imputer&lt;/code&gt; class from &lt;strong&gt;scikit-learn&lt;/strong&gt;, gave it a 'strategy' to handle the data, fitted the data and then transformed it. Easy peasy--no? Just go over it line by line.&lt;/p&gt;
+&lt;h4 id="nb_1"&gt;NB:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;The strategy &lt;code&gt;most_frequent&lt;/code&gt; is suitable for imputing categorical feature values, for         example, a feature column that contains an encoding of color names, such as green, orange, and blue.&lt;/li&gt;
+&lt;li&gt;Understanding the scikit-learn estimator API:
+&lt;img alt="Fit-transform - sklearn" src="https://i.stack.imgur.com/PiaIX.png"&gt;
+*image source: &lt;a href="https://i.stack.imgur.com/PiaIX.png"&gt;imgur&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;fit&lt;/code&gt; method learns the parameter from the training data, and the &lt;code&gt;transform&lt;/code&gt; method use these parameters to transform the data. &lt;/li&gt;
+&lt;li&gt;There are other ways of handling NaN. Go find out!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="resources"&gt;Resources:&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Python Machine Learning by Sebastian Raschka.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://scikit-learn.org/stable/data_transforms.html#dataset-transformations"&gt;scikit data transformation&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Data Science"></category><category term="Data Science"></category><category term="ML"></category><category term="scikit-learn"></category></entry><entry><title>My Analysis on WHO Suicide Data</title><link href="https://iameo.github.io/blog/2019/01/11/my-analysis-on-who-suicide-data/" rel="alternate"></link><published>2019-01-11T00:00:00+01:00</published><updated>2019-01-11T00:00:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2019-01-11:/blog/2019/01/11/my-analysis-on-who-suicide-data/</id><summary type="html">&lt;p&gt;&lt;em&gt;The rate of suicide in the world and where should help be targeted to inorder to reduce the numbers&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is my first public notebook and why it's on suicide is merely a thing of coincidence.
+I'll try to be brief while simplistic in pouring out figures and graphs, so let's get started.&lt;/p&gt;
+&lt;h3 id="workflow"&gt;Workflow:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;import the needed packages; from visualization tools to number handingling tools&lt;/li&gt;
+&lt;li&gt;load dataset&lt;/li&gt;
+&lt;li&gt;produce graphs, more graphs and even more graphs.&lt;/li&gt;
+&lt;li&gt;summary on visualization.&lt;/li&gt;
+&lt;li&gt;possible ML implementation(s)&lt;/li&gt;
+&lt;li&gt;summary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{% notebook ./notebooks/WHO_suicide__notebook.ipynb %}&lt;/p&gt;
+&lt;h2 id="observationsummary"&gt;Observation/Summary:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;5-14 years and 75+ years have low suicide rate.&lt;/li&gt;
+&lt;li&gt;15-24 years, 25-34 years and 35-54 years consist of high suicide rates.&lt;/li&gt;
+&lt;li&gt;Nigeria is a no show here.&lt;/li&gt;
+&lt;li&gt;Russia has the highest number of suicides and we checked that out.&lt;/li&gt;
+&lt;li&gt;I accomodated the idea of using a Linear Regression model to predict for 2016-2018. I might add that.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(If we'd be predicting based on year then onehot encoding most of the features(e.g sex, age) should be employed)&lt;/p&gt;
+&lt;h2 id="resources"&gt;Resources:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/szamil/who-suicide-statistics/kernels"&gt;WHO suicide Data (Kaggle)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Suicide_in_Russia"&gt;Wikipedia: Suicide in Russia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Suicide"&gt;Wikipedia - Suicide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nationsonline.org/oneworld/third_world.htm"&gt;Nationsonline&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><category term="articles"></category><category term="graphs"></category><category term="health"></category><category term="visuals"></category><category term="analysis"></category></entry></feed>
