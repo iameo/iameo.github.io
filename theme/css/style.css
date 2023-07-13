@@ -69,12 +69,12 @@ template {
 }
 
 a {
-    background: 0 0
+    background: 0 0;
 }
 
 a:active,
 a:hover {
-    outline: 0
+    outline: 0;
 }
 
 abbr[title] {
@@ -490,7 +490,7 @@ html.menu-active,
 
 
 a {
-    color: rgb(1, 1, 112);
+    color: rgb(0, 0, 203);
     text-decoration: none;
     font-weight: 400;
     transition: all ease-out 0.2s
@@ -2164,7 +2164,7 @@ table td:after {
     max-width: 100%;
     width: 95%;
     margin: 0 auto;
-    height: 360px;
+    height: 320px;
 }
    
 }
@@ -2265,6 +2265,14 @@ div.output_subarea {
 
 }
 
+   .post-content img,
+   .post-content .fluid-width-video-wrapper {
+    max-width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    height: 300px;
+}
+
 }
 
 
@@ -2280,6 +2288,16 @@ div.output_subarea {
     .post-nav {
         margin-bottom: 7rem;
     }
+}
+
+@media only screen and (max-width: 700px) {
+    .post-content img,
+    .post-content .fluid-width-video-wrapper {
+     max-width: 100%;
+     width: 85%;
+     margin: 0 auto;
+     height: 300px;
+ }
 }
 
 
