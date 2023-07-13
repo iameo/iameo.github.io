@@ -4,36 +4,61 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+<<<<<<< HEAD
 <loc>/</loc>
 <lastmod>2023-07-13T17:34:29-00:00</lastmod>
+=======
+<loc>https://iameo.github.io/</loc>
+<lastmod>2023-07-13T07:59:47-00:00</lastmod>
+>>>>>>> 2ac1e9da553206cd1ef73c94dd6c38ef84d76dc0
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
+<<<<<<< HEAD
 <loc>/archives.html</loc>
 <lastmod>2023-07-13T17:34:29-00:00</lastmod>
+=======
+<loc>https://iameo.github.io/archives.html</loc>
+<lastmod>2023-07-13T07:59:47-00:00</lastmod>
+>>>>>>> 2ac1e9da553206cd1ef73c94dd6c38ef84d76dc0
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
+<<<<<<< HEAD
 <loc>/tags.html</loc>
 <lastmod>2023-07-13T17:34:29-00:00</lastmod>
+=======
+<loc>https://iameo.github.io/tags.html</loc>
+<lastmod>2023-07-13T07:59:47-00:00</lastmod>
+>>>>>>> 2ac1e9da553206cd1ef73c94dd6c38ef84d76dc0
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
+<<<<<<< HEAD
 <loc>/categories.html</loc>
 <lastmod>2023-07-13T17:34:29-00:00</lastmod>
+=======
+<loc>https://iameo.github.io/categories.html</loc>
+<lastmod>2023-07-13T07:59:47-00:00</lastmod>
+>>>>>>> 2ac1e9da553206cd1ef73c94dd6c38ef84d76dc0
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
+<<<<<<< HEAD
 <loc>/pages/contact-me.html</loc>
 <lastmod>2023-07-13T17:34:29-00:00</lastmod>
+=======
+<loc>https://iameo.github.io/pages/contact-me.html</loc>
+<lastmod>2023-07-13T07:59:47-00:00</lastmod>
+>>>>>>> 2ac1e9da553206cd1ef73c94dd6c38ef84d76dc0
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
