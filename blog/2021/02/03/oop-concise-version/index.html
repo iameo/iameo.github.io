@@ -1280,9 +1280,9 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I'm always quick to recommend Fluent Python as one of the few books when asked the "what book should I read to become a good(or better) python programmer", and that's largely due to its easy absorption; the contents in the book not the book itself. (Although, I am yet to try the latter)</p>
-<p>In the case as to validating my taste in finer python books, I suppose Python Cookbook, Learn Python the Hard Way, and Eric's Python Crash Course book amongst others are in my arsenal.</p>
-<p>Going forward, I'll be taking one excerpt code from the Fluent Python book in order to explain some python object mechanism then we code our very own class. You do not need the book to follow through but I would suggest buying one to go through other code listings. (Not advertising!)</p>
+<p>I'm always quick to recommend Fluent Python as one of the few books when asked "What book should I read to become a good(or better) Python programmer", and that's largely due to its easy absorption; the contents in the book, not the book itself. (Although, I am yet to try the latter)</p>
+<p>In the case of validating my taste in finer Python books, I suppose Python Cookbook, Learn Python the Hard Way, and Eric's Python Crash Course book amongst others are in my arsenal.</p>
+<p>Going forward, I'll be taking one excerpt code from the Fluent Python book in order to explain some Python object mechanisms then we code our very own class. You do not need the book to follow through but I would suggest buying one to go through other code listings. (Not advertising!)</p>
 
 </div>
 </div>
@@ -1290,13 +1290,13 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The one borrowed code listing and our very own example are largely OOP based so the entirety of this article will build around that. A good time to learn (more*) about objects, property, classmethod, staticmethod and a couple more(Inheritance intentionally left out).</p>
-<h4 id="OOP:">OOP:<a class="anchor-link" href="#OOP:">&#182;</a></h4><p>This is a method of structuring a program by bundling related properties and behaviours into individual objects. The way of setting up an object <em>is</em> really in the definitive example of say, OOP is an approach for modelling concrete, real-world things; for instance, an object could represent a car with <strong>properties</strong> such as model, color and manufacture year, and <strong>behaviour</strong> like accelerating, de-accelerating and opening doors.</p>
-<h4 id="classmethod">classmethod<a class="anchor-link" href="#classmethod">&#182;</a></h4><p>A classmethod is a method that is bound to a class rather than its object. classmethod receives the class itself as the first argument in place on an instance(self). They are <strong>commonly</strong> identified by the decorator <em>@classmethod</em> on the method. You could also declare a class method anywhere outside the class using:</p>
-<h4 id="staticmethod">staticmethod<a class="anchor-link" href="#staticmethod">&#182;</a></h4><p>A staticmethod unlike a classmethod is not bounded to its class. It's pretty much a function* housed in a class, and as might as well be defined at the module level.</p>
-<p>So what really is a class? A class is used to create user-defined data structures. Classes define functions called methods(typical functions but inside a class), which are responsible for identifying behaviours and actions that an object created from that class can adhere to.</p>
-<p>Classes hold no real data but when instantiated(making an instance of that class), real data are provided when need be.</p>
-<p>A simple class structure could be seen below:</p>
+<p>The one borrowed code listing and our very own example are largely OOP based so the entirety of this article will build around that. A good time to learn (more*) about objects, property, classmethod, staticmethod, and a couple more(Inheritance intentionally left out).</p>
+<h4 id="OOP:">OOP:<a class="anchor-link" href="#OOP:">&#182;</a></h4><p>This is a method of structuring a program by bundling related properties and behaviors into individual objects. The way of setting up an object is really in the definitive example of say, OOP is an approach for modeling concrete, real-world things; for instance, an object could represent a car with <strong>properties</strong> such as model, color and manufacture year, and <strong>behavior</strong> like accelerating, de-accelerating and opening doors.</p>
+<h4 id="classmethod">classmethod<a class="anchor-link" href="#classmethod">&#182;</a></h4><p>A classmethod is a method that is bound to a class rather than its object. classmethod receives the class itself as the first argument in place on an instance(self). They are <em>commonly</em> identified by the decorator <strong>@classmethod</strong> on the method. You could also declare a class method anywhere outside the class using:</p>
+<h4 id="staticmethod">staticmethod<a class="anchor-link" href="#staticmethod">&#182;</a></h4><p>A staticmethod unlike a classmethod is not bounded to its class. It's pretty much a function* housed in a class, and as might as well be defined at the module level.
+So what really is a class? A class is used to create user-defined data structures. Classes define functions called methods(typical functions but inside a class), which are responsible for identifying behaviors and actions that an object created from that class can adhere to.
+Classes hold no real data but when instantiated(making an instance of that class), real data are provided when need be.
+A simple class structure could be seen below:</p>
 
 </div>
 </div>
@@ -1380,24 +1380,11 @@ h6:hover .anchor-link {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I can think of plenty ways of using the classmethod but not so much on the staticmethod. Let's move on to building another class, the one from the book. A two-dimensional Vector class. Do note that I added to the original code to fit our case even more.</p>
-<p>We want this vector class to be able to get its magnitude, angle, and compare with other vector class instances, build an instance using external data and unpack(x,y = vector(2.3, 4.3)) - hence making it iterable.</p>
+<p>I can think of plenty of ways using the classmethod but not so much on the staticmethod. Let's move on to building another class, the one from the book. A two-dimensional Vector class. Do note that I added to the original code to fit our case even more.</p>
+<p>We want this vector class to be able to get its magnitude and angle, compare with other vector class instances, build an instance using external data, and unpack(x,y = vector(2.3, 4.3)) - hence making it iterable.</p>
 
 </div>
 </div>
@@ -1576,7 +1563,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#external csv file imported</span>
@@ -1593,7 +1580,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Vector2d</span><span class="o">.</span><span class="n">external</span><span class="p">(</span><span class="n">vec_file</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
@@ -1609,7 +1596,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -1668,7 +1655,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">JohnPerson</span><span class="p">:</span>
@@ -1708,7 +1695,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person1</span> <span class="o">=</span> <span class="n">JohnPerson</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -1722,7 +1709,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person1</span><span class="o">.</span><span class="n">name_of_person</span><span class="p">(),</span> <span class="n">person2</span><span class="o">.</span><span class="n">name_of_person</span><span class="p">()</span>
@@ -1738,7 +1725,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -1755,7 +1742,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person1</span>
@@ -1771,7 +1758,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -1788,7 +1775,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person1</span><span class="o">.</span><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span> <span class="c1">#change person1&#39;s NAME to Fred; won&#39;t work as intended</span>
@@ -1820,7 +1807,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#shows Fred still as it references the JohnPerson class itself, not the instance</span>
@@ -1837,7 +1824,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -1854,7 +1841,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">person2</span><span class="o">.</span><span class="n">NAME</span>
@@ -1870,7 +1857,7 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -1885,36 +1872,10 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h5><p>Do not let OOP frustrate you. Fin.</p>
+<h5 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h5><p>Do not let OOP frustrate you.</p>
 
 </div>
 </div>
@@ -1929,32 +1890,6 @@ Vect_one:  (3.0, 9.0) &amp; Vect_two:  (3.0, 8.0)
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
