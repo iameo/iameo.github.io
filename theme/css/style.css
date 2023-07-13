@@ -2164,7 +2164,7 @@ table td:after {
     max-width: 100%;
     width: 95%;
     margin: 0 auto;
-    height: 360px;
+    height: 320px;
 }
    
 }
@@ -2268,9 +2268,9 @@ div.output_subarea {
    .post-content img,
    .post-content .fluid-width-video-wrapper {
     max-width: 100%;
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
-    height: 360px;
+    height: 300px;
 }
 
 }
