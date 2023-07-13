@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  
+  <meta charset="utf-8">
+
+
+  <title> BLEH | HTTPS: Moving on from EC2 Instance's HTTP</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="https://iameo.github.io/" rel="canonical" />
+
+
+  <!--MATHJAX-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.43/polyfill.min.js" integrity="sha512-lvWiOP+aMKHllm4THsjzNleVuGOh0WGniJ3lgu/nvCbex1LlaQSxySUjAu/LTJw9FhnSL/PVYoQcckg1Q03+fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script>
+	MathJax = {
+  	tex: {
+    		inlineMath: [['$', '$'], ['\\(', '\\)']]
+  	}
+	};
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <!-- Feed -->
+        <link href="https://iameo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Full Atom Feed" />
+          <link href="https://iameo.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="bleh Categories Atom Feed" />
+
+  <!-- CSS for fontawesome and animate -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"></script> -->
+
+
+  <!-- Jupyter css and customized css -->
+  <link href="https://iameo.github.io/theme/css/ipynb.css" type="text/css" rel="stylesheet">
+  <link href="https://iameo.github.io/theme/css/style.css" type="text/css" rel="stylesheet">
+
+
+
+ <!-- Code highlight color scheme -->
+      <link href="https://iameo.github.io/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- CSS OVERRIDE -->
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,300" rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">  
+
+  <!-- require -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- JQuery  --> 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <!-- plotly -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.0/plotly.min.js"></script>
+
+
+  
+
+  <link href="https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" rel="canonical" />
+
+    <meta name="description" content="I move on from HTTP to HTTPS; for security and other benefits">
+
+    <meta name="author" content="Emmanuel Okwudike">
+
+    <meta name="tags" content="ssl">
+    <meta name="tags" content="https">
+    <meta name="tags" content="aws">
+    <meta name="tags" content="flask">
+    <meta name="tags" content="api">
+    <meta name="tags" content="ubuntu">
+    <meta name="tags" content="nginx">
+    <meta name="tags" content="web development">
+    <meta name="tags" content="devOps">
+    <meta name="tags" content="backend">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="bleh"/>
+<meta property="og:title" content="HTTPS: Moving on from EC2 Instance's HTTP"/>
+<meta property="og:description" content="I move on from HTTP to HTTPS; for security and other benefits"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2023-06-27 23:34:00+01:00"/>
+<meta property="article:modified_time" content="2023-07-12 00:00:00+01:00"/>
+<meta property="article:author" content="https://iameo.github.io/author/emmanuel-okwudike.html">
+<meta property="article:section" content="DevOps"/>
+<meta property="article:tag" content="ssl"/>
+<meta property="article:tag" content="https"/>
+<meta property="article:tag" content="aws"/>
+<meta property="article:tag" content="flask"/>
+<meta property="article:tag" content="api"/>
+<meta property="article:tag" content="ubuntu"/>
+<meta property="article:tag" content="nginx"/>
+<meta property="article:tag" content="web development"/>
+<meta property="article:tag" content="devOps"/>
+<meta property="article:tag" content="backend"/>
+<meta property="og:image" content="">
+
+<!-- Twitter Card -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "HTTPS: Moving on from EC2 Instance's HTTP",
+  "headline": "HTTPS: Moving on from EC2 Instance's HTTP",
+  "datePublished": "2023-06-27 23:34:00+01:00",
+  "dateModified": "2023-07-12 00:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Emmanuel Okwudike",
+    "url": "https://iameo.github.io/author/emmanuel-okwudike.html"
+  },
+  "image": "",
+  "url": "https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/",
+  "description": "For the past year, I've been building and improving on VoIP services - at first it was a hobby then it turned into a professional skill..."
+}
+</script>
+</head>
+<!--Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+              <li role="presentation"><a href="https://iameo.github.io/pages/contact-me.html">Contact Me</a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progress bar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://iameo.github.io/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+            <h2 class="article-title">HTTPS: Moving on from EC2 Instance's HTTP</h2>
+    <header>
+       
+  
+        <span class="post-meta">
+	    <i class="fa fa-user"></i>
+                <a href="https://iameo.github.io/author/emmanuel-okwudike.html">Emmanuel Okwudike</a>
+            | <i class="fa fa-calendar"></i> <time datetime="Tue 27 June 2023">Tue 27 June 2023</time>
+        </span>
+            <span class="post-meta"> | Updated on Wed 12 July 2023</span>
+
+
+    </header>
+	 <p>For the past year, I've been building and improving on VoIP services - at first it was a hobby then it turned into a professional skill for a SaaS firm in the United States. This article reflects on the hobby phase and the 'HTTP-HTTPS' cross-origin issue I encountered.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>[enter <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" title="cors - bane of my web development existence">CORS</a>]</p>
+<p>It's February 2022 and I'm watching a Twilio Conference on YouTube; the next couple of days I'll put to use the Twilio documentation.</p>
+<p>At the time of writing, I have two projects on AWS in regards to this hobby: a rest API utilizing the powers of Twilio — from buying a local number (from a few supported countries) to handling voice calls, running on an <a href="https://aws.amazon.com/ec2/">EC2 instance.</a> And the other project — a web service that hits the API's endpoints. As a fun project, just for me and a colleague to play around with, NGROK was sufficient for local hosting; running a <em>temporary</em> HTTPS eliminated cross-origin issues, but the con with this 'hack' was its fragility in terms of custom domain availability and short-term use. Also, worthy of note that I could not serve this API on render, vercel or even Heroku as it is quite dense, and it affected performance and latency.</p>
+<p>To have my Web service conveniently hit my API, I had to set both up as HTTPS — moving on from HTTP.</p>
+<blockquote>
+<p>Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL). The protocol is therefore also referred to as HTTP over TLS, or HTTP over SSL. </p>
+</blockquote>
+<p><span style="font-size: smaller">My Web service had to be HTTPS as well as it uses audio connectivity to establish full calling protocols on browsers and this is disabled on HTTP by browsers, except, of course, localhost. And to allow HTTPS-HTTPS communication</span></p>
+<p>Moving on, I assume these things:
+- you have an EC2 instance running a live project (and preferably running on Ubuntu)
+- you have nginx properly configured (hence technically sound in reverse proxy?)
+- you have Security Groups on this instance properly configured (<strong>80 on HTTP; 443 on HTTPS; and additional PORTS you may need</strong>)
+- your elastic IP points to your ec2 instance that has an active service (in my case gunicorn for my flask application)</p>
+<p>To cut costs, we are not using Route 53, Certificate Manager and a Load Balancer to achieve running your instance on HTTPS — in a production environment, I strongly advise making use of these services. Even more so, if you have just a single instance for your application then this article suits you, <span style="font-size: smaller">but it's not an excuse to not use the aforementioned services.</span></p>
+<h3 id="getting-a-domain">Getting a Domain</h3>
+<p>As of June 2023, Freenom Domain registrations and services are down, so I had to opt for buying a domain.  Yikes! </p>
+<div style="text-align: center">
+    <img class="force-display" src="https://media.tenor.com/POm7fis_GHQAAAAd/ptdr.gif" alt="yikes!" width="400" height="300">
+</div>
+
+<p>This step is entirely down to your preferences; from cost, depending on the domain, to domain provider. I purchased a .com.ng on WhogoHost, a domain provider based in Nigeria.</p>
+<p>Depending on the domain provider most of the DNS information will be automatically filled while allowing editing where necessary, under <strong>DNS manager</strong>. This step is ideally initiated once <strong>Add New Zone</strong> is triggered.</p>
+<p><img alt="whogohost - manage DNS" src="/images/manage_dns.png" title="whogohost - manage DNS">
+<p style="text-align: center; font-size: smaller">screenshot of whogohost dashboard</p></p>
+<p><img alt="whogohost - add new zone" src="/images/add_new_zone.png" title="whogohost - add new zone">
+<p style="text-align: center; font-size: smaller">screenshot of whogohost dashboard - add new zone</p></p>
+<p><em>Zone name points to your domain name. IP Address points to your Elastic IP address.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></em></p>
+<p><img alt="AWS EC2 connect - active nginx" src="/images/nginx_active.png" title="AWS EC2 connect - active nginx">
+<p style="text-align: center; font-size: smaller">EC2 instance terminal showing active nginx</p></p>
+<p>Ensure your NGINX is running and try visiting your domain (http) - you are likely to hit a server issue here as it takes time for DNS changes to reflect, especially after registering one.</p>
+<p>Good? proceed to.....</p>
+<h3 id="configuring-instance-for-https">Configuring Instance for HTTPS</h3>
+<p>To use Certbot, you need a live HTTP website (domain) with an open PORT 80 (EC2's Security Group) which is hosted on a server; in our case Ubuntu server.</p>
+<p>In your machine's terminal (EC2 connect/SSH):</p>
+<p>Installing snapd...</p>
+<blockquote>
+<p>A snap is a bundle of one or more applications ("apps") and their dependencies that  works without modification across many different Linux distributions. Snaps are discoverable and installable from the Snap Store, an app store with an audience of millions.</p>
+</blockquote>
+<p>While the below is finetuned for Nginx on Ubuntu, visit <a href="https://certbot.eff.org/instructions?ws=nginx&amp;os=ubuntufocal" title="certbox instructions for all">certbox instructions</a> to use commands based on your web server.</p>
+<p><code>
+$ sudo snap install core; sudo snap refresh core
+$ sudo snap install --classic certbot
+$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+$ sudo certbot --nginx -v
+</code></p>
+<p><span style="font-size: smaller">Before running the last command make sure your domain has been properly configured and you get "All ok!" on <a href="https://letsdebug.net/">Let's Debug</a>. Upon succession, your nginx file is automatically modified to reflect the SSL changes (SSL port, SSL certification, SSL certification key)</span></p>
+<p>A typical success output, generated by certbot:</p>
+<p><code>
+Performing the following challenges:
+http-01 challenge for www.yourdomain 
+Waiting for verification... 
+Cleaning up challenges
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/yourdomain/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/yourdomain/privkey.pem
+This certificate expires on 20xx-xx-xx.
+These files will be updated when the certificate renews
+Certbot has set up a scheduled task to automatically renew this certificate in the background
+Deploying certificate
+Deploying Certificate to VirtualHost /your/nginx/path
+Successfully deployed certificate for yourdomain to /your/nginx/path
+Deploying Certificate to VirtualHost /your/nginx/path
+Successfully deployed certificate for yourdomain to /your/nginx/path
+Redirecting all traffic on port 80 to ssl in /your/nginx/path
+Redirecting all traffic on port 80 to ssl in /your/nginx/path
+Congratulations! You have successfully enabled HTTPS on https://yourdomain and https://www.yourdomain
+</code></p>
+<p>Visit your domain on https: https://yourdomain</p>
+<p><img alt="https enabled" src="/images/emvoip.png" title="HTTPS enabled"></p>
+<h3 id="challenges">Challenges</h3>
+<ul>
+<li>after purchasing and adding a new zone in my DNS manager dashboard I could not access my site nor check its DNS information on Let's Debug showed me this:</li>
+</ul>
+<hr>
+<blockquote>
+<p>NoRecords FATAL<br>
+No valid A or AAAA records could be ultimately resolved for emvoip.com.ng.<br>
+This means that Let's Encrypt would not be able to connect to your domain to perform HTTP validation, since it would not know where to connect to.<br>
+No A or AAAA records found.</p>
+</blockquote>
+<p>Incidentally, trying to reach your domain on a browser would result in this:</p>
+<blockquote>
+<p>
+This site can’t be reached<br>
+Check if there is a typo in <i>yourdomain.</i><br>
+If spelling is correct, try running Windows Network Diagnostics.<br>
+
+DNS_PROBE_FINISHED_NXDOMAIN<br>
+On any DNS Check tool you are likely to see the same as below for your domain, at this point.
+</p>
+</blockquote>
+
+<p><img alt="dns fail" src="/images/dnspropatefail.png" title="DNS yet to propagate"></p>
+<p>Fix: It can take a while for DNS changes to reflect on all nodes. Making sure my A record points to my Elastic IP and having to wait for about 110 minutes, I was able to have my API running on my domain (HTTP) before moving on to establish SSL. You can check your DNS propagation here: <a href="https://dnschecker.org/" title="CHECK DNS PROPAGATION">DNS Checker</a>.</p>
+<p><img alt="DNS propagating fairly" src="/images/dns_propagate_fair.png" title="DNS propagating fairly">
+<p style="text-align: center; font-size: smaller">After a long, long time DNS is propagating fairly</p></p>
+<p>&nbsp;
+- <strong>Connect using EC2 Instance Connect</strong> failed multiple times with the error message as seen below.</p>
+<blockquote>
+<p>Failed to connect to your instance\
+Error establishing SSH connection to your instance. Try again later.</p>
+</blockquote>
+<p>"Fix": I had to check my Security Group to enable PORT 22<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> for incoming connections, but saw it enabled already. Culprit ended up being IP related (running, at the time, a new network connection). I think. Anyhow I had to SSH instead, as a quick fix using <code>ssh -i "KEYNAME.pem" ubuntu@ec2-ela-stic-ip.compute-1.amazonaws.com</code> on my local machine.</p>
+<p>&nbsp;
+- DNS taking darn too long to propagate</p>
+<p>Fix: <strong><em>sleep</em></strong><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<div style="text-align: center">
+    <img class="force-display" src="https://media3.giphy.com/media/RMMNGb1KGmIX9LFei6/giphy.gif?cid=ecf05e47h9yx982kwvqc1u054g3zw1h3fbgqtg4dl8hn0tfc&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="close curtain!" width="400" height="300">
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+<h3 id="references">References</h3>
+<p>Official certbox website <a href="https://certbot.eff.org/">certbox homepage</a>. </p>
+<p>Oficial snapcraft website <a href="https://snapcraft.io/">linux snap</a>.</p>
+<p>Domain provider used <a href="https://www.whogohost.ng/">whogohost</a>.</p>
+<p>Amazon Web Services <a href="https://aws.amazon.com/">AWS</a>.</p>
+<p>SSL: <a href="https://www.cloudflare.com/learning/ssl/what-is-ssl/">what is SSL (Secure Sockets Layer)?</a> </p>
+<p>TTL: <a href="https://www.cloudns.net/wiki/article/188/" title="TTL">What is TTL?</a></p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Production level, this API is modeled as a microservice with AWS Load Balancer, CodePipeline, CloudWatch, CloudFront, Route 53, S3, and a couple more Amazon Web Services to ensure better performance, robustness and general security. <a href="https://aws.amazon.com/" title="AWS">check out Amazon Web Services here</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://support.dnsimple.com/articles/a-record/#:~:text=An%20A%20record%20uses%20a,A%20record%20stands%20for%20Address" title="What's an A record">What is A record</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Myth or Legend? <a href="https://stackoverflow.com/questions/44802363/cannot-connect-to-ec2-ssh-connect-to-host-port-22-connection-refused" title="port 22 and the prisoner of IPban">Port 22 - EC2</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Seriously, sleep! <a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" title="sleep faster...">See this</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=HTTPS: Moving on from EC2 Instance's HTTP&amp;url=https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer.php?u=https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook-f"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="linkedin" href="https://www.linkedin.com/cws/share?url=https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" onclick="window.open(this.href, 'linkedin-share', 'width=490,height=530');return false;">
+                        <i class="fa fa-linkedin"></i><span class="hidden">LinkedIn</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://iameo.github.io/tag/ssl.html">ssl</a><a href="https://iameo.github.io/tag/https.html">https</a><a href="https://iameo.github.io/tag/aws.html">aws</a><a href="https://iameo.github.io/tag/flask.html">flask</a><a href="https://iameo.github.io/tag/api.html">api</a><a href="https://iameo.github.io/tag/ubuntu.html">ubuntu</a><a href="https://iameo.github.io/tag/nginx.html">nginx</a><a href="https://iameo.github.io/tag/web-development.html">web development</a><a href="https://iameo.github.io/tag/devops.html">devOps</a><a href="https://iameo.github.io/tag/backend.html">backend</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer" style="bottom: 0; height: 2.5rem; width: 100%; position: absolute; margin-top: 2rem;">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/iameo/atyna" rel="nofollow">atyna</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+
+  <!-- theme js -->
+  <script type="text/javascript" src="https://iameo.github.io/theme/js/script.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132444432-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132444432-1', { 'anonymize_ip': true });
+    </script>
+    
+
+
+
+</body>
+
+</html>
