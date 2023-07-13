@@ -1288,8 +1288,8 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hello there, I've been gone for a long time, but you know, not like it was noticable or anything. <em><strong>cries in Eigenvectors</strong></em>. Well, if you must know the reason for my being gone for such a long time then look no further than: work, school, work, sleep, anime, sleep and just being generally lazy. Anyhow, 2020, I mean, right?</p>
-<p>Moving on....</p>
+<p>Hello there, I've been gone for a long time, but you know, not like it was noticeable or anything. <em><strong>cries in Eigenvectors</strong></em>. Well, if you must know the reason for my being gone for such a long time then look no further than work, school, work, sleep, anime, sleep and just being generally lazy. Anyhow, 2020, I mean, right?</p>
+<p>Moving on...</p>
 
 </div>
 </div>
@@ -1310,13 +1310,13 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR">&#182;</a></h3><p>The models show large daily confirmed cases and suggests that easing the lockdown would not be such a good idea at this point, even daily reported cases show that.
+<h3 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR">&#182;</a></h3><p>The models show large daily confirmed cases and suggest that easing the lockdown would not be such a good idea at this point, even daily reported cases show that.
 <img src="/images/maneuver_interstellar.jpg" alt="Interstellar-manuever"></p>
-<h4 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h4><p>With the established mathematical models in this post, I try to forecast the spread of the covid-19 virus over the next 12 days in Nigeria on a national level. It should give a sense of what is to come but do not take it wholeheartedly as shortage of resources is a big factor making the models. The plan initially was to make a model to predict on a state level from scraped data, but the downtimes and layout changes on NCDC's site ruined that plan making already scraped data inept for this task.</p>
-<h4 id="Limitation">Limitation<a class="anchor-link" href="#Limitation">&#182;</a></h4><p>In order to make reliable models for cases like this, modelers rely heavily on historic data from prior outbreaks which can help with insights and boosting metrics. There aren't any (beneficial) historic data in this case, and researchers know very little about the disease to consider as predictors for modelling. No actual telling how long the virus can live on everyday objects. No sure effect of weather conditions being a factor to the spread.</p>
+<h4 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h4><p>With the established mathematical models in this post, I try to forecast the spread of the covid-19 virus over the next 12 days in Nigeria on a national level. It should give a sense of what is to come but do not take it wholeheartedly as a shortage of resources is a big factor in making the models. The plan initially was to make a model to predict on a state level from scraped data, but the downtimes and layout changes on NCDC's site ruined that plan making already scraped data inept for this task.</p>
+<h4 id="Limitation">Limitation<a class="anchor-link" href="#Limitation">&#182;</a></h4><p>In order to make reliable models for cases like this, modelers rely heavily on historic data from prior outbreaks which can help with insights and boosting metrics. There aren't any (beneficial) historic data in this case, and researchers know very little about the disease to consider as predictors for modeling. No actual telling how long the virus can live on everyday objects. No sure effect of weather conditions being a factor in the spread.</p>
 <p>And as such the data is limited. Hence, overfitting is inevitable. Also, there's the questionable quality of the collected data due to human and machine error, especially with things being rushed.</p>
-<p>There's also the pattern irregularities associated with pandemics, such as this and making pattern finding a little bit strenous, and since the model is on a national-level, external data that could have proven useful are not included; isolation and testing centres, population density, covid-19 aids by states.</p>
-<h4 id="Assumption">Assumption<a class="anchor-link" href="#Assumption">&#182;</a></h4><p>The model assumes the travel ban as announced by the Federal Government of Nigeria was enforced on the stipulated date, and equally works with the view from a subset of the public concerning the proposed lockdown and social distancing: Relaxed, Strict and Not enforced. It also projects that said interventions will remain in place for future dates in which our testing falls.</p>
+<p>There are also the pattern irregularities associated with pandemics, such as this and making pattern finding a little bit strenuous, and since the model is on a national level, external data that could have proven useful are not included; isolation and testing centers, population density, covid-19 aids by states.</p>
+<h4 id="Assumption">Assumption<a class="anchor-link" href="#Assumption">&#182;</a></h4><p>The model assumes the travel ban as announced by the Federal Government of Nigeria was enforced on the stipulated date, and equally works with the view of a subset of the public concerning the proposed lockdown and social distancing: Relaxed, Strict, and Not enforced. It also projects that said interventions will remain in place for future dates in which our testing falls.</p>
 <p>In addition, the model (rightly) assumes that I'm not an Epidemiologist(check out SEIR models <a href="">here</a>) and that, in fact, I'm only a brooding Data Scientist.</p>
 <h4 id="Method">Method<a class="anchor-link" href="#Method">&#182;</a></h4><p>Two standalone nonlinear models and an ensemble after fitting reported confirmed cases and some derived features.</p>
 <p>Let's proceed!</p>
@@ -1326,7 +1326,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Import packages/tools </span>
@@ -1366,7 +1366,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
@@ -1395,7 +1395,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from plotly.offline import init_notebook_mode, plot,iplot</span>
@@ -1405,7 +1405,7 @@ h6:hover .anchor-link {
 
 <span class="c1"># import chart_studio.plotly as py</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_rows&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1"># pd.set_option(&quot;max_rows&quot;, 20)</span>
 </pre></div>
 
     </div>
@@ -1424,88 +1424,17 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;~/NG_covid19_ML/data/allData.csv&quot;</span><span class="p">)</span>\
-        <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Province/State&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
-        <span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;date&#39;</span><span class="p">:</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># data = pd.read_csv(&quot;~/NG_covid19_ML/data/allData.csv&quot;)\</span>
+<span class="c1">#         .drop([&quot;Province/State&quot;], axis=1)\</span>
+<span class="c1">#         .astype({&#39;date&#39;:&#39;datetime64[ns]&#39;})</span>
 
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># # data.head(3)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[4]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Country/Region</th>
-      <th>date</th>
-      <th>CumConfirmed</th>
-      <th>CumDeaths</th>
-      <th>CumRecovered</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>2020-01-22</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Albania</td>
-      <td>2020-01-22</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Algeria</td>
-      <td>2020-01-22</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -3667,7 +3596,7 @@ if (outputEl) {{
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I checked around for news that could be of value in terms of enfineering features.</p>
+<p>I checked around for news that could be of value in terms of engineering features.</p>
 <p><strong>21-03-2020: NG bans entry of travelers from 13 countries(incl. US, Uk, Italy, France and China) [ng.usembassy.gov]  Ban to last for 4 weeks.</strong></p>
 <p><strong>23-03-2020: Closure of land borders [vanguard]. Same with schools.</strong></p>
 <p>28-03-2020: GTB hands over 110-bed isolation centre to Lagos State Gov.</p>
@@ -5942,123 +5871,6 @@ Overfitting was expected due to the data being constrained to a small size.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
