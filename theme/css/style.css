@@ -610,16 +610,16 @@ hr {
 blockquote {
     font-style: italic;
     color: #444649;
-    margin-top:-1em;
+    margin-top:-.85em;
     margin-left: .5em;
     border-left: 0.2em solid rgb(61, 73, 80);
     border-top: 0.09em solid rgb(61, 73, 80);
     border-right: 0.09em solid rgb(61, 73, 80);
     border-bottom: 0.09em solid rgb(25, 28, 31);
-    padding: .83em .8em .8em 1.8em;
+    padding: .83em .8em .8em .8em;
     background-color: #faf9f7;
     border-radius: 0 .4em .4em 0;
-    box-shadow: 0.185em 0.185em 0.185em rgba(0,0,0,0.5);
+    box-shadow: 0.185em 0.185em 0.185em rgba(1, 10, 164, 0.5);
     font-size: .9em;
 }
 
@@ -769,7 +769,7 @@ kbd {
 
 img {
     display: block;
-    box-shadow: 0.195em 0.195em 0.195em rgba(0,0,0,0.5);
+    box-shadow: 0.195em 0.195em 0.195em rgba(46, 0, 115, 0.9);
 }
 
 .clear {
