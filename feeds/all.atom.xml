@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>bleh</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/all.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2023-07-12T00:00:00+01:00</updated><entry><title>HTTPS: Moving on from EC2 Instance's HTTP</title><link href="https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" rel="alternate"></link><published>2023-06-27T23:34:00+01:00</published><updated>2023-07-12T00:00:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2023-06-27:/blog/2023/06/27/https-moving-on-from-ec2-http/</id><summary type="html">&lt;p&gt;&lt;em&gt;I move on from HTTP to HTTPS; for security and other benefits&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past year, I've been building and improving on VoIP services - at first it was a hobby then it turned into a professional skill for a SaaS firm in the United States. This article reflects on the hobby phase and the 'HTTP-HTTPS' cross-origin issue I encountered.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;[enter &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" title="cors - bane of my web development existence"&gt;CORS&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;It's February 2022 and I'm watching a Twilio Conference on YouTube; the next couple of days I'll put to use the Twilio documentation.&lt;/p&gt;
@@ -8,20 +9,41 @@
 &lt;p&gt;Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL). The protocol is therefore also referred to as HTTP over TLS, or HTTP over SSL. &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;span style="font-size: smaller"&gt;My Web service had to be HTTPS as well as it uses audio connectivity to establish full calling protocols on browsers and this is disabled on HTTP by browsers, except, of course, localhost. And to allow HTTPS-HTTPS communication&lt;/span&gt;&lt;/p&gt;
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>bleh</title><link href="https://iameo.github.io/" rel="alternate"></link><link href="https://iameo.github.io/feeds/all.atom.xml" rel="self"></link><id>https://iameo.github.io/</id><updated>2023-07-12T00:00:00+01:00</updated><entry><title>HTTPS: Moving on from EC2 Instance's HTTP</title><link href="https://iameo.github.io/blog/2023/06/27/https-moving-on-from-ec2-http/" rel="alternate"></link><published>2023-06-27T23:34:00+01:00</published><updated>2023-07-12T00:00:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2023-06-27:/blog/2023/06/27/https-moving-on-from-ec2-http/</id><summary type="html">&lt;p&gt;&lt;em&gt;I move on from HTTP to HTTPS; for security and other benefits&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past year I've been building and improving VoIP services - at first it was a hobby then it turned into a professional skill for a SaaS firm. This article reflects on the hobby phase and the cross-origin issue I had.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;[enter &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" title="cors - bane of my web development existence"&gt;CORS&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;It's February, 2022 and I'm watching a Twilio Conference on YouTube; the next couple of days I'll put to use the Twilio documentation.&lt;/p&gt;
+&lt;p&gt;I have two projects on AWS in regards to this hobby: a rest API utilizing the powers of Twilio — from buying a local number (from a few supported countries) to handling voice calls, running on an &lt;a href="https://aws.amazon.com/ec2/"&gt;EC2 instance.&lt;/a&gt; And other project — a web service that hits the API's endpoints. As a fun project, just for me and a colleague to play around with, NGROK was sufficient for local hosting; running a &lt;em&gt;temporary&lt;/em&gt; HTTPS It eliminated cross-origin issues, but the con with this 'hack' was its fragility in terms of custom domain availability and short-term use. Also, worthy of note that I could not serve this API on render, vercel or even Heroku as it is quite dense, and it affected performance and latency.&lt;/p&gt;
+&lt;p&gt;For the purpose of having my Web service to conveniently hit my API, I had to set both up as HTTPS — moving on from HTTP.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It uses encryption for secure communication over a computer network, and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL). The protocol is therefore also referred to as HTTP over TLS, or HTTP over SSL. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span style="font-size: smaller"&gt;My Web service had to be HTTPS as well as it uses audio connectivity on browsers and this is disabled on HTTP by browsers, except, of course, localhost. And to allow HTTPS-HTTPS communication&lt;/span&gt;&lt;/p&gt;
+>>>>>>> master
 &lt;p&gt;Moving on, I assume these things:
 - you have an EC2 instance running a live project (and preferably running on Ubuntu)
 - you have nginx properly configured (hence technically sound in reverse proxy?)
 - you have Security Groups on this instance properly configured (&lt;strong&gt;80 on HTTP; 443 on HTTPS; and additional PORTS you may need&lt;/strong&gt;)
 - your elastic IP points to your ec2 instance that has an active service (in my case gunicorn for my flask application)&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;To cut costs, we are not using Route 53, Certificate Manager and a Load Balancer to achieve running your instance on HTTPS — in a production environment, I strongly advise making use of these services. Even more so, if you have just a single instance for your application then this article suits you, &lt;span style="font-size: smaller"&gt;but it's not an excuse to not use the aforementioned services.&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id="getting-a-domain"&gt;Getting a Domain&lt;/h3&gt;
 &lt;p&gt;As of June 2023, Freenom Domain registrations and services are down, so I had to opt for buying a domain.  Yikes! &lt;/p&gt;
+=======
+&lt;p&gt;To cut cost, we are not using Route 53, Certificate Manager and a Load Balancer to achieve running your instance on HTTPS — in a production, I strongly advise making use of these services. Even more so, if you have just a single instance for your application then this article suits you, &lt;span style="font-size: smaller"&gt;but it's not an excuse to not use the aforementioned services.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id="getting-a-domain"&gt;Getting a Domain&lt;/h3&gt;
+&lt;p&gt;As at June 2023, Freenom Domain registrations and services are down, so I had to opt for buying a domain.  Yikes! &lt;/p&gt;
+>>>>>>> master
 &lt;div style="text-align: center"&gt;
     &lt;img class="force-display" src="https://media.tenor.com/POm7fis_GHQAAAAd/ptdr.gif" alt="yikes!" width="400" height="300"&gt;
 &lt;/div&gt;
 
 &lt;p&gt;This step is entirely down to your preferences; from cost, depending on the domain, to domain provider. I purchased a .com.ng on WhogoHost, a domain provider based in Nigeria.&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;Depending on the domain provider most of the DNS information will be automatically filled while allowing editing where necessary, under &lt;strong&gt;DNS manager&lt;/strong&gt;. This step is ideally initiated once &lt;strong&gt;Add New Zone&lt;/strong&gt; is triggered.&lt;/p&gt;
+=======
+&lt;p&gt;Depending on the domain provider most of the DNS informations will be automatically filled while allowing edit where necessary, under &lt;strong&gt;DNS manager&lt;/strong&gt;. This step is ideally initiated once &lt;strong&gt;Add New Zone&lt;/strong&gt; is triggered.&lt;/p&gt;
+>>>>>>> master
 &lt;p&gt;&lt;img alt="whogohost - manage DNS" src="/images/manage_dns.png" title="whogohost - manage DNS"&gt;
 &lt;p style="text-align: center; font-size: smaller"&gt;screenshot of whogohost dashboard&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="whogohost - add new zone" src="/images/add_new_zone.png" title="whogohost - add new zone"&gt;
@@ -32,7 +54,11 @@
 &lt;p&gt;Ensure your NGINX is running and try visiting your domain (http) - you are likely to hit a server issue here as it takes time for DNS changes to reflect, especially after registering one.&lt;/p&gt;
 &lt;p&gt;Good? proceed to.....&lt;/p&gt;
 &lt;h3 id="configuring-instance-for-https"&gt;Configuring Instance for HTTPS&lt;/h3&gt;
+<<<<<<< HEAD
 &lt;p&gt;To use Certbot, you need a live HTTP website (domain) with an open PORT 80 (EC2's Security Group) which is hosted on a server; in our case Ubuntu server.&lt;/p&gt;
+=======
+&lt;p&gt;In order to use Certbot, you need a live HTTP website (domain) with an open PORT 80 (EC2's Security Group) which is hosted on a server; in our case Ubuntu server.&lt;/p&gt;
+>>>>>>> master
 &lt;p&gt;In your machine's terminal (EC2 connect/SSH):&lt;/p&gt;
 &lt;p&gt;Installing snapd...&lt;/p&gt;
 &lt;blockquote&gt;
@@ -69,9 +95,15 @@ Congratulations! You have successfully enabled HTTPS on https://yourdomain and h
 &lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Visit your domain on https: https://yourdomain&lt;/p&gt;
 &lt;p&gt;&lt;img alt="https enabled" src="/images/emvoip.png" title="HTTPS enabled"&gt;&lt;/p&gt;
+<<<<<<< HEAD
 &lt;h3 id="challenges"&gt;Challenges&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;after purchasing and adding a new zone in my DNS manager dashboard I could not access my site nor check its DNS information on Let's Debug showed me this:&lt;/li&gt;
+=======
+&lt;h3 id="challanges"&gt;Challanges&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;subsequent to purchasing and adding a new zone in my DNS manager dashboard I could not access my site nor check its DNS information on Let's Debug showed me this:&lt;/li&gt;
+>>>>>>> master
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -80,7 +112,11 @@ No valid A or AAAA records could be ultimately resolved for emvoip.com.ng.&lt;br
 This means that Let's Encrypt would not be able to connect to your domain to perform HTTP validation, since it would not know where to connect to.&lt;br&gt;
 No A or AAAA records found.&lt;/p&gt;
 &lt;/blockquote&gt;
+<<<<<<< HEAD
 &lt;p&gt;Incidentally, trying to reach your domain on a browser would result in this:&lt;/p&gt;
+=======
+&lt;p&gt;Incidentally, trying to reach your domain on a browser would result to this:&lt;/p&gt;
+>>>>>>> master
 &lt;blockquote&gt;
 &lt;p&gt;
 This site can’t be reached&lt;br&gt;
@@ -124,7 +160,11 @@ Error establishing SSH connection to your instance. Try again later.&lt;/p&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id="fn:1"&gt;
+<<<<<<< HEAD
 &lt;p&gt;Production level, this API is modeled as a microservice with AWS Load Balancer, CodePipeline, CloudWatch, CloudFront, Route 53, S3, and a couple more Amazon Web Services to ensure better performance, robustness and general security. &lt;a href="https://aws.amazon.com/" title="AWS"&gt;check out Amazon Web Services here&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+=======
+&lt;p&gt;On production level, this API is modeled as a microservice with AWS Load Balancer, CodePipeline, CloudWatch, CloudFront, Route 53, S3, and a couple more Amazon Web Services to ensure better performance, robustness and general security. &lt;a href="https://aws.amazon.com/" title="AWS"&gt;check out Amazon Web Services here&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+>>>>>>> master
 &lt;/li&gt;
 &lt;li id="fn:2"&gt;
 &lt;p&gt;&lt;a href="https://support.dnsimple.com/articles/a-record/#:~:text=An%20A%20record%20uses%20a,A%20record%20stands%20for%20Address" title="What's an A record"&gt;What is A record&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -133,7 +173,11 @@ Error establishing SSH connection to your instance. Try again later.&lt;/p&gt;
 &lt;p&gt;Myth or Legend? &lt;a href="https://stackoverflow.com/questions/44802363/cannot-connect-to-ec2-ssh-connect-to-host-port-22-connection-refused" title="port 22 and the prisoner of IPban"&gt;Port 22 - EC2&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:4"&gt;
+<<<<<<< HEAD
 &lt;p&gt;Seriously, sleep! &lt;a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" title="sleep faster..."&gt;See this&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+=======
+&lt;p&gt;Seriously, sleep! &lt;a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" title="sleep faster..."&gt;see this&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+>>>>>>> master
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content><category term="DevOps"></category><category term="ssl"></category><category term="https"></category><category term="aws"></category><category term="flask"></category><category term="api"></category><category term="ubuntu"></category><category term="nginx"></category><category term="web development"></category><category term="devOps"></category><category term="backend"></category></entry><entry><title>OOP: concise version</title><link href="https://iameo.github.io/blog/2021/02/03/oop-concise-version/" rel="alternate"></link><published>2021-02-03T10:15:00+01:00</published><updated>2021-02-03T10:15:00+01:00</updated><author><name>Emmanuel Okwudike</name></author><id>tag:iameo.github.io,2021-02-03:/blog/2021/02/03/oop-concise-version/</id><summary type="html">&lt;p&gt;&lt;em&gt;Glimpse of Object Oriented Programming&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
